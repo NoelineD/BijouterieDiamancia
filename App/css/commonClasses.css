@@ -1,0 +1,25 @@
+/* figure dans listjewels et panier */
+
+
+
+/* figure dans listjewels et panier */
+
+.introFigure {
+    position: relative;
+    width: 100%;
+    /* color: #3D535F; */
+    color: #FFFF;
+    text-align: center;
+    margin-bottom: 20px;
+    max-height: 350px;
+}
+
+.introFigcaption {
+    position: absolute;
+    background-color: rgba(229, 185, 138, 0.6);
+    top: 8%;
+    width: 40%;
+    left: 5%;
+    font-style: italic;
+    font-size: 1.7em;
+}

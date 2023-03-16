@@ -1,0 +1,16 @@
+{
+    "name": "diamancia/app",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Diamancia\\App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Noeline Dupont",
+            "email": "noelinedupont@gmail.com"
+        }
+    ],
+    "require": {}
+}

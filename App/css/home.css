@@ -1,0 +1,107 @@
+  figure {
+      position: relative;
+      width: 100%;
+      color: #3D535F;
+  }
+
+  figcaption {
+      position: absolute;
+      background-color: rgb(229, 207, 209, 0.6);
+      top: 20%;
+      width: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.6em;
+  }
+
+  cite {
+      font-size: inherit;
+      font-size: 1.7em;
+  }
+
+  .btnImg {
+      position: absolute;
+      right: 5%;
+      bottom: 10%;
+      background-image: linear-gradient(to right, #D78884 0%, #FFFF 51%, #D78884 100%);
+      padding: 15px 10px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: 0.5s;
+      background-size: 200% auto;
+      font-size: 0.8em;
+      border: transparent;
+      color: #566A74;
+      box-shadow: 10px 10px 10px #DBDBDD;
+      border-radius: 15px;
+      cursor: pointer;
+  }
+
+  .btnImg:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #566A74;
+  }
+
+  h2 {
+      font-size: 12px;
+      margin: 5%;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .presentation {
+      display: block;
+      height: 8em;
+      width: 80%;
+      margin: 15% 0 15% 10%;
+  }
+
+  .fontStyle {
+      font-family: 'Source Serif Pro', serif;
+      color: #566A74;
+      font-weight: bold;
+      font-size: x-large;
+  }
+
+
+  #blocVideo {
+      position: relative;
+      max-height: 450px;
+      width: 100%;
+  }
+
+  #video {
+      object-fit: cover;
+      max-height: 450px;
+      width: 100%;
+  }
+
+  /* .gridImg{
+  margin:1%;
+  } */
+
+  .roundImg {
+      height: 150px;
+      width: auto;
+      border-radius: 50%;
+  }
+
+ @media (min-width:600px) {
+
+      .introImg {
+          height: 450px;
+          width: auto;
+          object-fit: cover;
+      }
+
+      figcaption {
+          font-size: 1em;
+          width: 55%;
+      }
+
+      .btnImg {
+          font-size: 1em;
+      }
+
+  }

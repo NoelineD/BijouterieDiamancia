@@ -1,0 +1,99 @@
+.main{
+    min-height: 1500px;
+}
+
+.introFigcaption {
+    top: 72%;
+    width: 28%;
+    left: 2%;
+    font-size: 1.5em;
+}
+
+.table{
+ width:90%;
+ margin:10px;
+ border: 2px solid white;
+ border-spacing: 0;
+list-style-type: none;
+ 
+   }
+
+.table tr{
+/* background-color: aqua; */
+text-align: center;
+font-size: 0.7em;
+margin-bottom: 2px;
+
+}
+
+.table tr th{
+ background-color: rgb(255, 192, 203, 0.5);
+ width:8em;
+ height:30px;
+   }
+
+.imgArticle{
+    height:10em; 
+    width:auto;
+    margin:10px;
+}
+   
+.btnFont{
+ font-size: 1.2em;
+}
+
+.btn{
+text-decoration: none;
+padding:4px;
+border: 2px solid rgb(255, 255, 255);
+color:white;
+background-color: rgb(255, 192, 203);
+}
+
+.btn:focus, .btn:hover {
+    text-decoration: none;
+    padding: 4px;
+    border: 2px solid rgb(255, 192, 203);
+    color: rgb(255, 192, 203);
+    background-color: rgb(255, 255, 255);
+}
+
+
+.btnMinus{
+padding-right:5.5px;
+padding-left: 5.5px;
+}
+  
+.totalPrice{
+    font-weight: bold;
+}
+
+  @media (min-width:600px) {
+      
+.introFigure{
+    margin-bottom:100px;
+}
+
+.introFigcaption{
+    font-size: 2.2em;
+    width:20%;
+    top: 94%;
+}
+
+.introImg {
+    max-height: 440px;
+    width: auto;
+}
+
+.table{
+    width:70%;
+}
+
+.table tr{
+    font-size: 1em;
+}
+
+.imgArticle {
+    margin: 20px;
+}
+}

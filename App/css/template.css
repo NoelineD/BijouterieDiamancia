@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /*------------------------ MOBILE-FIRST ------------------------------------*/
+
+  body {
+    min-height: 100vh;
+     /* display: flex; */
+  }
+
+  main{
+    width:100%;
+  }
+  
+  header {
+   width:100%;
+   height:120px;
+  }
+  .navTab{
+  display:none;
+  }
+
+  .mobileFlex{
+    display:flex;
+    height: 100px;
+    width: 100%;
+  }
+
+
+  .middlenav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    
+  }
+
+/************* Searching Bar  ***************/
+  .iconsLeftContainer{
+    display:flex;
+    /* background-color:rgb(156, 241, 213); */
+    width:100%;
+    padding-left:20px;
+    padding-top:100px;
+    align-items:center;
+  }
+
+  .searchButton {
+      /* border: none; */
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      border-left:none;
+    }
+  
+  .searchInput {
+      padding: 4px;
+      width: 120px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+
+    }
+
+  /************* Fin Searching Bar  ***************/
+  .iconsRightContainer{
+    display:flex;
+    /* background-color:rgb(246, 139, 118); */
+    width:100%;
+    padding-right:20px;
+    margin-top:3em;
+    /* align-items:center; */
+    justify-content:right;
+  }
+
+
+  .iconsSpaceRight{
+    display:block;
+    margin-left: 10%;
+  }
+
+  ul{
+    list-style-type: none;
+  }
+  /*************** Burger Menu **************/
+  .nav {
+    position: relative;
+    width: auto;
+    display: inline-block;
+    border: none;
+  }
+  /* Bouton nav  */
+
+  .btn-nav {
+    position: fixed;
+    top: 1em;
+    left: 5%;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 99999; 
+  }
+  
+  /* ligne sous menu */
+  .line-betwen {
+    width: 50%;
+    left:25%;
+    height: 3px;
+    background-color: #e7bbd5;
+    position: relative;
+    top: 100px;
+  }
+  
+  .btn-nav:focus {
+    outline: 0;  
+    /* shortcut for outline width/style/color */
+  }
+  
+  /* Set the Burger icons (3 lines) */
+  .icon-bar {
+    display: block;
+    margin: 7px 0;
+    width: 35px; 
+    height: 4px;
+    background-color: #566A74;
+  }
+  
+  .btn-nav:hover .icon-bar {
+    background-color: #94A5B4;
+  }
+  
+  /* Appearing Nav */
+  /* always have to be a position, fixed or absolute or relative if want to use a z index and - smthing  */
+  .nav-content {
+    position: fixed;
+    top: -100%; 
+    /* To position on the outside, top -100 */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.9);
+    display: block;
+    height: 100%;
+    z-index: 9; 
+    /* set on 9 cause behind Accueil... */
+  }
+  
+  /* bottom line in the menu */
+  .below-line {
+    width: 15%;
+    height: 3px;
+    background-color: #94A5B4;
+    position: relative;
+    left: 42.5%;
+    top: 40px;
+  }
+  
+  /* list box */
+  .nav-list {
+    list-style: none;
+    /* padding: 0; */
+    position: relative;
+    /* top: 10%; */
+  }
+  
+  .item-anchor:after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+  }
+  
+  /* After effects */
+  .item-anchor {
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    position: relative;
+    text-decoration: none;
+    padding: 10px;
+    letter-spacing: 15px;
+  }
+  /* Text color Menu when mouse on */
+  .item-anchor:hover,
+  .item-anchor:focus {
+    color: #e7bbd5;
+   
+  }
+  
+  /* effet barre du dessous */
+  /* on controle la vitesse des animations () */
+  /* webkit est un prefixe vendeur qui force a utilisé un propriété meme si pas encore implémenté sur tout les nav= pour chrome opera 12 Safari  Moz=mozilla firefox, ms=microsoft
+  on met plusieurs fois les transition pour que ça fasse pareil sur tt les nav
+  */
+
+  .item-anchor:hover:after,
+  .item-anchor:focus:after{
+    width: 100%;
+    background: #e7bbd5;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    /* all 'cause used for all properties usefull if you want to add another property same transition with comma separated (classe ici)*/
+  }
+  
+  /*  */
+  .nav-item {
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  /* animation sur l'icone burger croix */
+  .animated {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .animated:hover .icon-bar,
+  .animated:focus .icon-bar{
+    background-color: #e7bbd5;
+  }
+  
+  .animated:focus {
+    cursor: pointer;
+    z-index: 9999;
+  }
+  
+  .middle {
+    margin: 0 auto;
+  }
+  
+  .icon-bar {
+    -webkit-transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -ms-transition: all .7s ease;
+    -o-transition: all .7s ease;
+    transition: all .7s ease;
+    z-index: 999999;
+  }
+  
+  .animated .icon-bar {
+    z-index: 999999;
+    background-color: #595c5f;
+  }
+  
+  /* effet pour retourner la nav   */
+  /* rotation vertical et horizontale reduction 10px largeur */
+  .animated .top {
+    -webkit-transform: translateY(10px) rotateZ(45deg);
+    -moz-transform: translateY(10px) rotateZ(45deg);
+    -ms-transform: translateY(10px) rotateZ(45deg);
+    -o-transform: translateY(10px) rotateZ(45deg);
+    transform: translateY(10px) rotateZ(45deg);
+  }
+  
+  .animated .bottom {
+    -webkit-transform: translateY(-11px) rotateZ(-45deg);
+    -moz-transform: translateY(-11px) rotateZ(-45deg);
+    -ms-transform: translateY(-11px) rotateZ(-45deg);
+    -o-transform: translateY(-11px) rotateZ(-45deg);
+    transform: translateY(-11px) rotateZ(-45deg);
+  }
+  
+  /* /fait disparaitre la ligne du milieu */
+  .animated .middle {
+    width: 0;
+  }
+  
+  /* keyframe liées au js */
+  @keyframes showNav {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 0;
+    }
+  }
+  
+  @-webkit-keyframes showNav {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 0;
+    }
+  }
+  
+  @-moz-keyframes showNav {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 0;
+    }
+  }
+  
+  @-o-keyframes showNav {
+    from {
+      top: -100%;
+    }
+    to {
+      top: 0;
+    }
+  }
+  /* ease= slow beg & end, ease in=slow beg fast end, ease out= fast beg slow end */
+  .showNav {
+    -webkit-animation: showNav 1s ease forwards;
+    -moz-animation: showNav 1s ease forwards;
+    -o-animation: showNav 1s ease forwards;
+    animation: showNav 1s ease forwards;
+  }
+  
+  @keyframes hideNav {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100%;
+    }
+  }
+  
+  @-webkit-keyframes hideNav {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100%;
+    }
+  }
+  
+  @-moz-keyframes hideNav {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100%;
+    }
+  }
+  
+  @-o-keyframes hideNav {
+    from {
+      top: 0;
+    }
+    to {
+      top: -100%;
+    }
+  }
+  
+  .hideNav {
+    -webkit-animation: hideNav 1s ease forwards;
+    -moz-animation: hideNav 1s ease forwards;
+    -o-animation: hideNav 1s ease forwards;
+    animation: hideNav 1s ease forwards;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .logo{
+    width:10vh;
+    height:auto;
+    align-items:center;
+  }
+
+  
+   /*************** main **************/
+  main {
+    width:100%;
+  }
+
+  /*************** Footer **************/
+
+  footer {
+    display:flex;
+    flex-direction:column;
+    background-color: rgba(185, 180, 180, 0.209);
+    height: 100px;
+    width:100%;
+    color:#fcc8d9;
+    font-style:italic;
+  }
+
+  .footerContainer{
+    display:flex;
+    /* align-items:right; */
+  }
+
+  .socialMedia{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    /* background-color: aquamarine; */
+    margin:10px;
+    width:30%;
+  }
+
+  .bottomMenu{
+    display:flex;
+    color:#566A74;
+    align-items:center;
+    justify-content:space-evenly;
+    /* background-color: #e7bbd5; */
+    font-weight:bold;
+    margin:5px;
+    width:70%;
+    height:60px;
+  }
+  
+  ul>li>a{
+    text-decoration:none;
+    color:#fcc8d9;
+  }
+  /* p{
+    font-size:
+  } */
+  
+  /*------------------------ TABLETTE ------------------------------------*/
+
+  @media (min-width: 768px) {
+    aside {
+      order: 1;
+    }
+
+    article {
+      order: -1;
+    }
+
+    main {
+      flex-direction: row;
+    }
+  }
+
+    /*------------------------Menu Déroulant User ------------------------------------*/
+
+    .userMenu{
+      display:block;
+      position:absolute;
+      /* placement sous menu par rapport à l'écran */
+      top:70px;
+      right:0;
+      /* fait disparaitre à droite de l'écran et réapparaitre grace au 0 */
+      transform:translate(1000px,0);
+    }
+
+    .userMenu>a {
+      display:block; /*   par défaut balise a est inline */
+      width:200px; 
+      background-color:rgba(0,0,0,.4);
+      text-align:center;
+      box-sizing:border-box ; 
+      /* width:auto; */
+      padding:20px;
+      color:beige;
+      margin:1px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .userMenu>a:hover{
+      background-color:rgb(255, 255, 255,0.4);
+      color:#3D535F;
+      transition: all 0.3s ease;
+    }
+
+    .blockDeroulant{
+     display:block;
+    }
+
+    #user{
+      display:none;
+    }
+
+    #user:checked+.userMenu{
+    transform: translate(0, 0); /* le menu apparait */
+    transition: all 0.5s ease;
+    z-index: 999999;
+    }
+
+   
+    

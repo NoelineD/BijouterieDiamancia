@@ -1,0 +1,132 @@
+  main {
+      /* background-color: aqua; */
+      display: block;
+      width: 100%;
+  }
+
+  #blocVideo {
+      position: relative;
+      max-height: 700px;
+      width: 100%;
+  }
+
+  #video {
+      object-fit: cover;
+      height: 700px;
+      width: 100%;
+  }
+
+  .formContainer {
+      height: 850x;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .form {
+      background: rgb(251, 249, 249);
+      box-shadow: 0 30px 60px 0 rgba(252, 252, 252, 0.4);
+      border-radius: 5px;
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      left: 0;
+      right: 0;
+      position: absolute;
+      border-top: 5px solid #FEC7D4;
+      border-right: 5px solid #FEC7D4;
+      /*   z-index: 1; */
+      animation: bounce 1.5s infinite;
+  }
+
+  ::-webkit-input-placeholder {
+      font-size: 1.1em;
+  }
+
+  .pageTitle {
+      display: block;
+      font-size: 1.3em;
+      font-family: sans-serif;
+      font-weight: bold;
+      color: #3a3838;
+      margin-top:20px;
+      padding-left:40px;
+      width: 250px;
+  }
+
+  .formEntry {
+      display: block;
+      margin: 30px auto;
+      min-width: 300px;
+      padding: 10px;
+      border-radius: 2px;
+      border: none;
+      transition: all 0.5s ease 0s;
+  }
+
+  .inputHeight {
+      background-color: #EDEDED;
+      height: 1.8em;
+  }
+
+  .inputHeight:hover {
+      border-bottom: 5px solid #FEC7D4;
+      height: 30px;
+      width: 320px;
+      transition: ease 0.5s;
+  }
+
+  .submit {
+      cursor: pointer;
+      width: 200px;
+      color: white;
+      background-color: #FEC7D4;
+      font-size: 20px;
+      margin-top:10px;
+  }
+
+  .submit:hover {
+      box-shadow: 15px 15px 15px 5px rgba(251, 251, 251, 0.934);
+      width: 300px;
+      background-image: linear-gradient(to right, #fafafa 0%, #FEC7D4 51%, #fafafa 100%);
+      transition: 0.5s;
+  }
+
+  @keyframes bounce {
+      0% {
+          tranform: translate(0, 4px);
+      }
+
+      50% {
+          transform: translate(0, 8px);
+      }
+  }
+
+  @media (min-width:600px) {
+
+      #video {
+          max-height: 700px;
+      }
+
+      .form {
+
+          max-width: 500px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-top: 5px solid #FEC7D4;
+          border-right: 5px solid #FEC7D4;
+      }
+
+      .pageTitle {
+          font-size: 1.5em;
+          width: 350px;
+      }
+
+      .formEntry {
+          min-width: 350px;
+          padding: 15px;
+      }
+  }

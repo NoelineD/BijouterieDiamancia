@@ -9,6 +9,7 @@ use Exception;
 class JewelModel
 {
 
+    // CARDS Dans listJewel
     public function listJewel()
     {
 
@@ -17,6 +18,7 @@ class JewelModel
         return $tabJewels;
     }
 
+    // CARD HEART
     // on transmet la valeur de la limite comme argument
     public function listJewelsWithLimit($limit=20)
     {
@@ -38,6 +40,37 @@ class JewelModel
         $dao = new Dao();
         $dao->deleteJewelById($id);
     }
+
+    // CARDS Dans listRing
+
+    public function listRing()
+    {
+
+    $dao = new Dao();
+    
+    $tabJewels = $dao->getAllRings();
+    return $tabJewels;
+    }
+
+    public function listRingFiltered($filters)
+    {
+        $dao = new Dao();
+
+        // Récupération des noms des métaux et pierres précieuses à partir des ids
+        if (isset($filters['metal'])) {
+            $metalName = $dao->getMetalNameById($filters['metal']);
+            $filters['metal'] = $metalName;
+        }
+        if (isset($filters['stone'])) {
+            $stoneName = $dao->getStoneNameById($filters['stone']);
+            $filters['stone'] = $stoneName;
+        }
+        
+        $tabJewels = $dao->getRingsFiltered($filters);
+        return $tabJewels;
+    }
+
+    // ******************************** PARTIE ADMIN ************************************//
 
     // récupère les infos de la dao et création d'un nouveau bijou on instancie une nouvelle classe
     public function createJewel()
@@ -89,4 +122,5 @@ class JewelModel
         $dao = new Dao();
         $dao->updateJewel($jewel, $id);
     }
+
 }

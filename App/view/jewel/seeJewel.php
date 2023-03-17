@@ -20,19 +20,10 @@
                             <input type="text" name="title" id="id_title" value="<?= $jewel->getTitle(); ?>" placeholder="" required autofocus>
                         </div>
 
-                        <div class="line">
-                            <label for="id_metal">metal : * </label>
-                            <input type="text" name="metal" id="id_metal" value="<?= $jewel->getMetal(); ?>" placeholder="" required autofocus>
-                        </div>
 
                         <div class="line">
                             <label for="id_details">details : * </label>
                             <input type="text" name="details" id="id_details" value="<?= $jewel->getDetails(); ?>" placeholder="" required autofocus>
-                        </div>
-
-                        <div class="line">
-                            <label for="id_size">Taille : * </label>
-                            <input type="text" name="size" id="id_size" value="<?= $jewel->getSize(); ?>" placeholder="" required autofocus>
                         </div>
 
                         <div class="line">
@@ -63,6 +54,16 @@
                         <div class="line">
                             <label for="id_stone">Identifiant de la pierre : * </label>
                             <input type="text" name="stone" id="id_stone" value="<?= $jewel->getStone(); ?>">
+                        </div>
+
+                        <div class="line">
+                            <label for="id_metal">metal : * </label>
+                            <input type="text" name="metal" id="id_metal" value="<?= $jewel->getMetal(); ?>" placeholder="" required autofocus>
+                        </div>
+
+                        <div class="line">
+                            <label for="id_size">Taille : * </label>
+                            <input type="text" name="size" id="id_size" value="<?= $jewel->getSize(); ?>" placeholder="" required autofocus>
                         </div>
 
                         <br>

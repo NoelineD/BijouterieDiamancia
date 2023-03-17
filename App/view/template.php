@@ -28,11 +28,11 @@
       </div>
       <div class="nav-content hideNav hidden">
         <ul class="nav-list">
-          <li class="nav-item"><a href="" class="item-anchor">Accueil</a></li>
-          <li class="nav-item"><a href="" class="item-anchor">Bagues</a></li>
-          <li class="nav-item"><a href="" class="item-anchor">Colliers</a></li>
-          <li class="nav-item"><a href="" class="item-anchor">Bracelets</a></li>
-          <li class="nav-item"><a href="" class="item-anchor">Boucles</a></li>
+          <li class="nav-item"><a href="index.php" class="item-anchor">Accueil</a></li>
+          <li class="nav-item"><a href="index.php?entite=jewels&action=listofrings" class="item-anchor">Bagues</a></li>
+          <li class="nav-item"><a href="index.php?entite=jewels&action=listofnecklaces" class="item-anchor">Colliers</a></li>
+          <li class="nav-item"><a href="index.php?entite=jewels&action=listofbracelets" class="item-anchor">Bracelets</a></li>
+          <li class="nav-item"><a href="index.php?entite=jewels&action=listofEarrings" class="item-anchor">Boucles</a></li>
           <li class="nav-item"><a href="index.php?entite=jewels&action=list" class="item-anchor">Tous nos bijoux</a></li>
         </ul>
         <div class="line-betwen"></div>
@@ -82,10 +82,10 @@
     <!-- ---------------------- Menu Tab+ --------------------------- -->
     <div class="menuContainer">
       <ul class="navTab">
-        <li><a href="a" class="tabAnchor">Bagues</a></li>
-        <li><a href="b" class="tabAnchor">Colliers</a></li>
-        <li><a href="c" class="tabAnchor">Bracelets</a></li>
-        <li><a href="d" class="tabAnchor">Boucles</a></li>
+        <li><a href="index.php?entite=jewels&action=listofrings" class="tabAnchor">Bagues</a></li>
+        <li><a href="index.php?entite=jewels&action=listofnecklaces" class="tabAnchor">Colliers</a></li>
+        <li><a href="index.php?entite=jewels&action=listofbracelets" class="tabAnchor">Bracelets</a></li>
+        <li><a href="index.php?entite=jewels&action=listofEarrings" class="tabAnchor">Boucles</a></li>
         <li><a href="index.php?entite=jewels&action=list" class="tabAnchor">Tous nos bijoux</a></li>
       </ul>
     </div>

@@ -12,7 +12,7 @@ class Jewel
     private string $color;
     private string $image_name;
     private float $price;
-    private ?string $update_at;
+    private ?string $updated_at;
     private int $stock;
     private int $id_Type;
     private int $id_Stone;
@@ -41,7 +41,7 @@ class Jewel
         $this->color = $color;
         $this->image_name = $image_name;
         $this->price = $price;
-        $this->update_at = date("Y-m-d H:i:s");
+        $this->updated_at = date("Y-m-d H:i:s");
         $this->stock = $stock;
         $this->id_Type = $id_Type;
         $this->id_Stone = $id_Stone;
@@ -72,9 +72,9 @@ class Jewel
     {
         return $this->image_name;
     }
-    public function getUpdate_at()
+    public function getUpdated_at()
     {
-        return $this->update_at;
+        return $this->updated_at;
     }
     public function getPrice()
     {

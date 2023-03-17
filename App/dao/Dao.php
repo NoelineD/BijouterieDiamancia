@@ -23,6 +23,7 @@ class Dao
         }
     }
 
+    //*********************************** Parie User ***************************************//
 
     public function getUserByLogin(string $login): User
     {
@@ -71,6 +72,11 @@ class Dao
         $user_stat->execute($param);
     }
 
+    
+    //*********************************** Parie Jewel ***************************************//
+
+    // ListJewel récupère tout les bijoux Cards
+
     public function getAllJewels(): array
     {
 
@@ -83,6 +89,73 @@ class Dao
         return $jewels;
     }
 
+    // ListRing récupère toutes les bagues Cards
+
+    public function getAllRings(): array
+    {
+
+        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 2 ORDER BY RAND()';
+        $jewel_statement = $this->dbconnect->query($sql);
+        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        //Fetch props late= si utilisé avec fetch class le constructeur de la classe appelé avant que les propriétés ne soit assignées à partir des valeurs de colonnes respectives
+        $jewels = $jewel_statement->fetchAll();
+        // fetchAll permet de recuperer tout les resultats et retourner un tableau de bijoux
+        return $jewels;
+    }
+
+     // ListRing récupère toutes les bagues en fonction des filtres et les met dans les Cards
+
+    public function getRingsFiltered($filters): array
+    {
+        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 2';
+        $params = [];
+
+        // J'ajoute les filtres
+        // si le paramètre est metal alors on ajoute la correspondance entre le filtre et ma table metal dans la base de donnée
+        
+        if (isset($filters['metal'])) {
+            //on concatene on ajoute à la variable sql avec le .=
+            $sql .= ' AND `metal` = :metal';
+            $params[':metal'] = $filters['metal'];
+        }
+        if (isset($filters['stone'])) {
+            $sql .= ' AND `stone` = :stone';
+            $params[':stone'] = $filters['stone'];
+        }
+        if (isset($filters['price'])) {
+            $sql .= ' AND `price` <= :price';
+            $params[':price'] = $filters['price'];
+        }
+
+        // on ajoute
+        $sql .= ' ORDER BY RAND()';
+        $jewel_statement = $this->dbconnect->prepare($sql);
+        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        $jewel_statement->execute($params);
+        $jewels = $jewel_statement->fetchAll();
+        return $jewels;
+    }
+
+    // récupère les name de mes metaux et pierre par id
+
+    public function getMetalNameById($id)
+    {
+        $mtname = $this->dbconnect->prepare("SELECT name_metal FROM metal WHERE id_metal = :id");
+        $mtname->execute(['id' => $id]);
+        $result = $mtname->fetch(PDO::FETCH_ASSOC);
+        return $result['name_metal'];
+    }
+
+    public function getStoneNameById($id)
+    {
+        $stname = $this->dbconnect->prepare("SELECT name_stone FROM stone WHERE id_stone = :id");
+        $stname->execute(['id' => $id]);
+        $result = $stname->fetch(PDO::FETCH_ASSOC);
+        return $result['name_stone'];
+    }
+
+    // ListJewel récupère tout les bijoux CardHeart
+
     public function getJewelsWithLimit($limit): array
     {
 
@@ -94,10 +167,10 @@ class Dao
         return $jewels;
     }
 
-    //get all articles by ID by stone, by type etc.... PAGE BY STONE AND CATEGORY TO DO
-    // +enregistrer cart and favs + 2 functions
-
     //To modify jewels
+
+   
+    //*********************************** Partie JEWEL ADMIN***************************************//
 
     public function setjewel(Jewel $jewel)
     {
@@ -111,7 +184,7 @@ class Dao
             ':color' => $jewel->getColor(),
             ':file' => $jewel->getImage_name(),
             ':price' => $jewel->getPrice(),
-            ':date' => $jewel->getUpdate_at(),
+            ':date' => $jewel->getUpdated_at(),
             ':stock' => $jewel->getStock(),
             ':type' => $jewel->getType(),
             ':stone' => $jewel->getStone(),
@@ -126,7 +199,7 @@ class Dao
     public function updateJewel(Jewel $jewel, int $idJewel)
     {
 
-        $sql = 'UPDATE `articles` SET `title`=:title,`details`=:details,`color`=:color,`image_name`=:file,`price`=:price,`updated_at`=:date, `stock`=:stock,`id_type`=:type,`id_pierre`=:stone,`metal`=:metal,`size`=:size WHERE id_Article=' . $idJewel;
+        $sql = 'UPDATE `articles` SET `title`=:title,`details`=:details,`color`=:color,`image_name`=:file,`price`=:price,`updated_at`=:date, `stock`=:stock,`id_type`=:type,`id_stone`=:stone,`id_metal`=:metal,`id_size`=:size WHERE id_Article=' . $idJewel;
 
         $jewel_statement = $this->dbconnect->prepare($sql);
         $param = [
@@ -137,7 +210,7 @@ class Dao
             ':file' => $jewel->getImage_name(),
             // file pour parcourir les fichiers et modif image
             ':price' => $jewel->getPrice(),
-            ':date' => $jewel->getUpdate_at(),
+            ':date' => $jewel->getUpdated_at(),
             ':stock' => $jewel->getStock(),
             ':stone' => $jewel->getStone(),
             ':type' => $jewel->getType(),

@@ -310,4 +310,13 @@ h4{
         }
   }
 
-  
+  /* VIDEO DANS LISTRING */
+
+  #videoJewelbis {
+      object-fit: cover;
+      max-height: 450px;
+      margin-bottom: 30px;
+      width: 100%;
+  }
+
+  /* FIN MODIF LIST RING */

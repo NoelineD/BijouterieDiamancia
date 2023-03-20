@@ -9,7 +9,7 @@
                         <legend><strong><em>Fiche produit</em></strong></legend>
 
                         <?php if ($error) : ?>
-                            <div class="alert alert-danger"><?= $error ?></div>
+                            <div style="background-color:brown;"><?= $error ?></div>
                         <?php endif ?>
 
                         <input type="hidden" name="id" value="<?= $jewel->getId(); ?>">
@@ -48,22 +48,22 @@
 
                         <div class="line">
                             <label for="id_type">Identifiant du type : * </label>
-                            <input type="text" name="type" id="id_type" value="<?= $jewel->getType(); ?>">
+                            <input type="text" name="id_Type" id="id_type" value="<?= $jewel->getType(); ?>">
                         </div>
 
                         <div class="line">
                             <label for="id_stone">Identifiant de la pierre : * </label>
-                            <input type="text" name="stone" id="id_stone" value="<?= $jewel->getStone(); ?>">
+                            <input type="text" name="id_Stone" id="id_stone" value="<?= $jewel->getStone(); ?>">
                         </div>
 
                         <div class="line">
-                            <label for="id_metal">metal : * </label>
-                            <input type="text" name="metal" id="id_metal" value="<?= $jewel->getMetal(); ?>" placeholder="" required autofocus>
+                            <label for="id_metal">Identifiant du metal : * </label>
+                            <input type="text" name="id_Metal" id="id_metal" value="<?= $jewel->getMetal(); ?>" placeholder="" required autofocus>
                         </div>
 
                         <div class="line">
-                            <label for="id_size">Taille : * </label>
-                            <input type="text" name="size" id="id_size" value="<?= $jewel->getSize(); ?>" placeholder="" required autofocus>
+                            <label for="id_size">Identifiant de la Taille : * </label>
+                            <input type="text" name="id_Size" id="id_size" value="<?= $jewel->getSize(); ?>" placeholder="" required autofocus>
                         </div>
 
                         <br>

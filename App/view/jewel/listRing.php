@@ -7,17 +7,13 @@
 
     </figure>
 
-    <!-- <div id="blocVideo">
-        <video id="video" type="video/mp4" src="/Autres/bague-fiancailles-diamants.jpg" controls autoplay muted loop></video>
-    </div> -->
-
     <main class="mainContainer">
 
         <div class="filterContainer">
 
             <button class="btnImg" type="button">accueil</button>
             <!-- AJOUT DE LA DIV FILTER POUR TENTER DE FAIRE LE FILTRAGE -->
-            <div class="filter">
+            <!-- <div class="filter"> -->
                 <h4>filtrer par:</h4>
 
                 <div class="flex">
@@ -47,7 +43,7 @@
                     </div>
 
                     <div class="filterType">
-                        <selec id="filterColor" t>
+                        <select id="filterColor">
                             <option value="">-- couleur --</option>
                             <option>vert</option>
                             <option>blanc</option>
@@ -59,7 +55,7 @@
                             <option>violet</option>
                             <option>rouge</option>
                             <option>multicolors</option>
-                        </selec>
+                        </select>
                     </div>
 
                     <div class="filterType">

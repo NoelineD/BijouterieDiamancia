@@ -40,33 +40,47 @@ class JewelController extends Controller
         // on instancie la classe jewel model et on passe à ce nouvel objet la méthode listRing
         $model = new JewelModel();
 
-        // je verifie si des filtres ont été envoyés
-        $filters = [];
-        if (isset($_GET['metal'])) $filters['metal'] = $_GET['metal'];
-        if (isset($_GET['stone'])) $filters['stone'] = $_GET['stone'];
-        if (isset($_GET['price'])) $filters['price'] = $_GET['price'];
+        // $stone = $_GET['stone'] ?? '';
+        // $metal = $_GET['metal'] ?? '';
+        // $color = $_GET['color'] ?? '';
+        // $price = $_GET['price'] ?? '';
 
-        // Si un filtre pour le métal est présent, on recherche son id correspondant
-        if (isset($filters['metal'])) {
-            $metalName = $filters['metal'];
-            $idMetal = $model->getMetalIdByName($metalName);
-            $filters['metal'] = $idMetal;
-        }
+        // $filteredRings = $model->getFilteredRings($stone, $metal, $color, $price);
 
-        // Si un filtre pour la pierre précieuse est présent, on recherche son id correspondant
-        if (isset($filters['stone'])) {
-            $stoneName = $filters['stone'];
-            $idStone = $model->getStoneIdByName($stoneName);
-            $filters['stone'] = $idStone;
-        }
+        // // Retourner les bijoux filtrés en tant que réponse AJAX
+        // echo json_encode($filteredRings);
 
-        // Appel de la méthode listRing avec ou sans filtres selon ce qui a été envoyé
-        // si filtres vide alors on utilise le modèle listRing et sinon on utilise le modèle de filtrage
-        if (empty($filters)) {
-            $tabRings = $model->listRing();
-        } else {
-            $tabRings = $model->listRingFiltered($filters);
-        }
+        // test avec filtre qui va chercher le nom 
+
+        // // je verifie si des filtres ont été envoyés
+        // $filters = [];
+        // if (isset($_GET['metal'])) $filters['metal'] = $_GET['metal'];
+        // if (isset($_GET['stone'])) $filters['stone'] = $_GET['stone'];
+        // if (isset($_GET['price'])) $filters['price'] = $_GET['price'];
+
+        // // Si un filtre pour le métal est présent, on recherche son id correspondant
+        // if (isset($filters['metal'])) {
+        //     $metalName = $filters['metal'];
+        //     $idMetal = $model->getMetalIdByName($metalName);
+        //     $filters['metal'] = $idMetal;
+        // }
+
+        // // Si un filtre pour la pierre précieuse est présent, on recherche son id correspondant
+        // if (isset($filters['stone'])) {
+        //     $stoneName = $filters['stone'];
+        //     $idStone = $model->getStoneIdByName($stoneName);
+        //     $filters['stone'] = $idStone;
+        // }
+
+        // // Appel de la méthode listRing avec ou sans filtres selon ce qui a été envoyé
+        // // si filtres vide alors on utilise le modèle listRing et sinon on utilise le modèle de filtrage
+        // if (empty($filters)) {
+        //     $tabRings = $model->listRing();
+        // } else {
+        //     $tabRings = $model->listRingFiltered($filters);
+        // }
+
+        $tabRings= $model->listRing();
 
         // on passe aussi cette autre méthode pour les cardHearts avec une limite de 20
         $tabJewelsLimit = $model->listJewelsWithLimit(20);

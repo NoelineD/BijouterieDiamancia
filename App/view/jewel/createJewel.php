@@ -9,7 +9,7 @@
                     <legend><strong><em>Fiche produit</em></strong></legend>
 
                     <?php if ($error) : ?>
-                        <div class="alert alert-danger"><?= $error ?></div>
+                        <div style="background-color:brown;"><?= $error ?></div>
                     <?php endif ?>
 
                     <div class="line">
@@ -18,18 +18,8 @@
                     </div>
 
                     <div class="line">
-                        <label for="id_metal">metal : * </label>
-                        <input type="text" name="metal" id="id_metal" required autofocus>
-                    </div>
-
-                    <div class="line">
                         <label for="id_details">details : * </label>
                         <input type="text" name="details" id="id_details" required autofocus>
-                    </div>
-
-                    <div class="line">
-                        <label for="id_size">Taille : * </label>
-                        <input type="text" name="size" id="id_size">
                     </div>
 
                     <div class="line">
@@ -54,12 +44,22 @@
 
                     <div class="line">
                         <label for="id_type">Identifiant du type : * </label>
-                        <input type="text" name="type" id="id_type" required>
+                        <input type="text" name="id_Type" id="id_type" required>
                     </div>
 
                     <div class="line">
                         <label for="id_stone">Identifiant de la pierre : * </label>
-                        <input type="text" name="stone" id="id_stone" required>
+                        <input type="text" name="id_Stone" id="id_stone" required>
+                    </div>
+
+                    <div class="line">
+                        <label for="id_metal">metal : * </label>
+                        <input type="text" name="id_Metal" id="id_metal" required autofocus>
+                    </div>
+
+                    <div class="line">
+                        <label for="id_size">Taille : * </label>
+                        <input type="text" name="id_Size" id="id_size">
                     </div>
 
                     <br>

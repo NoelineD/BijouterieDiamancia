@@ -20,7 +20,7 @@ class JewelModel
 
     // CARD HEART
     // on transmet la valeur de la limite comme argument
-    public function listJewelsWithLimit($limit=20)
+    public function listJewelsWithLimit($limit = 20)
     {
 
         $dao = new Dao();
@@ -46,29 +46,29 @@ class JewelModel
     public function listRing()
     {
 
-    $dao = new Dao();
-    
-    $tabJewels = $dao->getAllRings();
-    return $tabJewels;
-    }
-
-    public function listRingFiltered($filters)
-    {
         $dao = new Dao();
 
-        // Récupération des noms des métaux et pierres précieuses à partir des ids
-        if (isset($filters['metal'])) {
-            $metalName = $dao->getMetalNameById($filters['metal']);
-            $filters['metal'] = $metalName;
-        }
-        if (isset($filters['stone'])) {
-            $stoneName = $dao->getStoneNameById($filters['stone']);
-            $filters['stone'] = $stoneName;
-        }
-        
-        $tabJewels = $dao->getRingsFiltered($filters);
+        $tabJewels = $dao->getAllRings();
         return $tabJewels;
     }
+
+    // public function listRingFiltered($filters)
+    // {
+    //     $dao = new Dao();
+
+    //     // Récupération des noms des métaux et pierres précieuses à partir des ids
+    //     if (isset($filters['metal'])) {
+    //         $metalName = $dao->getMetalNameById($filters['metal']);
+    //         $filters['metal'] = $metalName;
+    //     }
+    //     if (isset($filters['stone'])) {
+    //         $stoneName = $dao->getStoneNameById($filters['stone']);
+    //         $filters['stone'] = $stoneName;
+    //     }
+
+    //     $tabJewels = $dao->getRingsFiltered($filters);
+    //     return $tabJewels;
+    // }
 
     // ******************************** PARTIE ADMIN ************************************//
 
@@ -83,12 +83,12 @@ class JewelModel
         $filename = $_FILES['image']['name'];
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_SPECIAL_CHARS);
         $stock = filter_input(INPUT_POST, 'stock', FILTER_SANITIZE_SPECIAL_CHARS);
-        $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_SPECIAL_CHARS);
-        $stone = filter_input(INPUT_POST, 'stone', FILTER_SANITIZE_SPECIAL_CHARS);
-        $metal = filter_input(INPUT_POST, 'metal', FILTER_SANITIZE_SPECIAL_CHARS);
-        $size = filter_input(INPUT_POST, 'size', FILTER_SANITIZE_SPECIAL_CHARS);
+        $type = filter_input(INPUT_POST, 'id_Type', FILTER_SANITIZE_SPECIAL_CHARS);
+        $stone = filter_input(INPUT_POST, 'id_Stone', FILTER_SANITIZE_SPECIAL_CHARS);
+        $metal = filter_input(INPUT_POST, 'id_Metal', FILTER_SANITIZE_SPECIAL_CHARS);
+        $size = filter_input(INPUT_POST, 'id_Size', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $jewel = new Jewel($title, $details, $color, $filename, $price, $stock, $type, $stone,$metal,$size);
+        $jewel = new Jewel($title, $details, $color, $filename, $price, $stock, $type, $stone, $metal, $size);
 
         $dao->setJewel($jewel);
     }
@@ -104,10 +104,10 @@ class JewelModel
         $filename = filter_input(INPUT_POST, 'image_name', FILTER_SANITIZE_SPECIAL_CHARS);
         $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
         $stock = filter_input(INPUT_POST, 'stock', FILTER_VALIDATE_INT);
-        $type = filter_input(INPUT_POST, 'type', FILTER_VALIDATE_INT);
-        $stone = filter_input(INPUT_POST, 'stone', FILTER_VALIDATE_INT);
-        $metal = filter_input(INPUT_POST, 'metal', FILTER_SANITIZE_SPECIAL_CHARS);
-        $size = filter_input(INPUT_POST, 'size', FILTER_VALIDATE_INT);
+        $type = filter_input(INPUT_POST, 'id_Type', FILTER_VALIDATE_INT);
+        $stone = filter_input(INPUT_POST, 'id_Stone', FILTER_VALIDATE_INT);
+        $metal = filter_input(INPUT_POST, 'id_Metal', FILTER_SANITIZE_SPECIAL_CHARS);
+        $size = filter_input(INPUT_POST, 'id_Size', FILTER_VALIDATE_INT);
 
 
 
@@ -122,5 +122,4 @@ class JewelModel
         $dao = new Dao();
         $dao->updateJewel($jewel, $id);
     }
-
 }

@@ -105,36 +105,36 @@ class Dao
 
      // ListRing récupère toutes les bagues en fonction des filtres et les met dans les Cards
 
-    public function getRingsFiltered($filters): array
-    {
-        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 2';
-        $params = [];
+    // public function getRingsFiltered($filters): array
+    // {
+    //     $sql = 'SELECT * FROM `articles` WHERE `id_type` = 2';
+    //     $params = [];
 
-        // J'ajoute les filtres
-        // si le paramètre est metal alors on ajoute la correspondance entre le filtre et ma table metal dans la base de donnée
+    //     // J'ajoute les filtres
+    //     // si le paramètre est metal alors on ajoute la correspondance entre le filtre et ma table metal dans la base de donnée
         
-        if (isset($filters['metal'])) {
-            //on concatene on ajoute à la variable sql avec le .=
-            $sql .= ' AND `metal` = :metal';
-            $params[':metal'] = $filters['metal'];
-        }
-        if (isset($filters['stone'])) {
-            $sql .= ' AND `stone` = :stone';
-            $params[':stone'] = $filters['stone'];
-        }
-        if (isset($filters['price'])) {
-            $sql .= ' AND `price` <= :price';
-            $params[':price'] = $filters['price'];
-        }
+    //     if (isset($filters['metal'])) {
+    //         //on concatene on ajoute à la variable sql avec le .=
+    //         $sql .= ' AND `metal` = :metal';
+    //         $params[':metal'] = $filters['metal'];
+    //     }
+    //     if (isset($filters['stone'])) {
+    //         $sql .= ' AND `stone` = :stone';
+    //         $params[':stone'] = $filters['stone'];
+    //     }
+    //     if (isset($filters['price'])) {
+    //         $sql .= ' AND `price` <= :price';
+    //         $params[':price'] = $filters['price'];
+    //     }
 
-        // on ajoute
-        $sql .= ' ORDER BY RAND()';
-        $jewel_statement = $this->dbconnect->prepare($sql);
-        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
-        $jewel_statement->execute($params);
-        $jewels = $jewel_statement->fetchAll();
-        return $jewels;
-    }
+    //     // on ajoute
+    //     $sql .= ' ORDER BY RAND()';
+    //     $jewel_statement = $this->dbconnect->prepare($sql);
+    //     $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+    //     $jewel_statement->execute($params);
+    //     $jewels = $jewel_statement->fetchAll();
+    //     return $jewels;
+    // }
 
     // récupère les name de mes metaux et pierre par id
 
@@ -243,6 +243,8 @@ class Dao
 
         return $art;
     }
+
+     // Page seeJewels pour voir le bijou et ses infos correspondant à un id 
 
     public function getJewelById(int $id): Jewel
     {

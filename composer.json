@@ -8,9 +8,10 @@
     },
     "authors": [
         {
-            "name": "Noeline Dupont",
+            "name": "Noeline Dupont" ,
             "email": "noelinedupont@gmail.com"
         }
     ],
     "require": {}
 }
+

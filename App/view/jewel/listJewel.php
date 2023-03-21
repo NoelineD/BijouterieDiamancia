@@ -7,7 +7,7 @@
 
   </figure>
 
-  <main class="mainContainer">
+  <section class="mainContainer">
 
     <div class="filterContainer">
 
@@ -84,11 +84,16 @@
           <ul>
             <!-- si l'utilisateur est connecté -->
             <?php if ($_SESSION['role'] === 'CLIENT') : ?>
+
+              <!-- <li> -->
+              <!-- mettre coeur image fontawesome pas rempli et un rempli en display:none qui apparait quand on clique sur l'image-->
+              <!-- <a href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId(); ?>">Ajouter</a>
+              </li> -->
+
               <li>
                 <a href="index.php?entite=jewels&action=addtocart&id=<?= $jewel->getId(); ?>">Ajouter</a>
               </li>
-              <!-- a faire Admin -->
-              <!-- si l'utilisateur connecté est de rôle ADMIN -->
+
               <li>
                 <a href="index.php?entite=jewels&action=delete&id=<?= $jewel->getId(); ?>">Retirer</a>
               </li>
@@ -110,7 +115,7 @@
       <!-- fin de boucle -->
     </div>
 
-  </main>
+  </section>
 
   <video id="videoJewel" type="video/mp4" src="\Autres\Diamant.mp4" controls autoplay muted loop></video>
 

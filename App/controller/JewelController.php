@@ -6,6 +6,8 @@ use Diamancia\App\model\JewelModel;
 use Diamancia\App\entities\Cart;
 // use Diamancia\App\entities\Jewel;
 use Diamancia\App\dao\Dao;
+use Diamancia\App\entities\Favoris;
+
 // use Diamancia\App\controller\Controller;
 
 // require_once 'app/controller/Controller.php';
@@ -80,7 +82,7 @@ class JewelController extends Controller
         //     $tabRings = $model->listRingFiltered($filters);
         // }
 
-        $tabRings= $model->listRing();
+        $tabRings = $model->listRing();
 
         // on passe aussi cette autre méthode pour les cardHearts avec une limite de 20
         $tabJewelsLimit = $model->listJewelsWithLimit(20);
@@ -100,7 +102,7 @@ class JewelController extends Controller
     public function createjewel()
     {
         // var_dump($_POST);
-        $error = "";
+
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             // envoi du formulaire
             $view = 'jewel/createJewel';
@@ -108,16 +110,23 @@ class JewelController extends Controller
             $paramView = ['css' => 'seeJewel', 'error' => ''];
             $this->createView($view, $paramView);
         } else {
+            $error = '';
             // traitement des informations
             //print_r($_POST);
             //print_r($_FILES);
-            $filename = 'Assets/' . $_FILES['image']['name'];
+            $filename = 'App/Assets/' . $_FILES['image']['name'];
             if (move_uploaded_file($_FILES['image']['tmp_name'], $filename)) {
                 $model = new JewelModel();
                 $model->createJewel();
             } else {
                 $error = 'Erreur lors du chargement de l\'image';
             }
+
+            // $view = 'jewel/listJewel';
+
+            // $paramView = ['css' => 'listJewel', 'error' => ''];
+            // $this->createView($view, $paramView);
+
             header('Location: index.php?entite=jewels&action=list');
             exit();
         }
@@ -180,6 +189,22 @@ class JewelController extends Controller
         $jewel = $dao->getJewelById($idJewel);
 
         $cart->add($jewel);
+
+        header('Location:index.php?entite=jewels&action=list');
+        exit();
+    }
+
+    public function addtofavs()
+    {
+
+        $Favs = new Favoris();
+
+        $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+        $dao = new Dao();
+        $jewel = $dao->getJewelById($idJewel);
+
+        $Favs->add($jewel);
 
         header('Location:index.php?entite=jewels&action=list');
         exit();

@@ -11,13 +11,12 @@ use Exception;
 class UserController extends Controller
 {
 
-    public function createView(string $vue, array $params)
-    {
+    // public function createView(string $vue, array $params)
+    // {
+    //     extract($params); // creation des variables nécessaires à la vue
 
-        extract($params); // creation des variables nécessaires à la vue
-
-        include 'app/view/template.php';
-    }
+    //     include 'app/view/template.php';
+    // }
 
     public function execute(string $action)
     {

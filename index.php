@@ -8,6 +8,7 @@ use Diamancia\App\controller\AppController;
 use Diamancia\App\controller\UserController;
 use Diamancia\App\controller\JewelController;
 use Diamancia\App\controller\CartController;
+use Diamancia\App\controller\FavsController;
 
 // if (!isset($_SESSION['cart'])) {
 //     $_SESSION['cart'] = [];
@@ -51,10 +52,10 @@ try {
             $ctrl = new CartController();
             $ctrl->execute($action);
             break;
-        case 'favs':
+        case 'favoris':
             // appel du sous controleur de l'entite panier
             // include 'controller/CartControleur.php';
-            $ctrl = new CartController();
+            $ctrl = new FavsController();
             $ctrl->execute($action);
             break;
         default:

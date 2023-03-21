@@ -2,8 +2,9 @@
 
 namespace Diamancia\App\controller;
 
-use Diamancia\App\entities\Favs;
+use Diamancia\App\entities\Favoris;
 use Diamancia\App\dao\Dao;
+use Diamancia\App\entities\Cart;
 
 class FavsController extends Controller
 {
@@ -11,7 +12,7 @@ class FavsController extends Controller
     public function add()
     {
 
-        $cart = new Favs();
+        $cart = new Cart();
 
         $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
@@ -24,32 +25,32 @@ class FavsController extends Controller
         exit();
     }
 
-    // public function remove()
-    // {
 
-    //     $cart = new Cart();
+    public function delete()
+    {
 
-    //     $idVin = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $favs = new favoris();
 
-    //     $dao = new Dao();
-    //     $wine = $dao->getJewelById($idVin);
+        $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-    //     $cart->remove($wine);
+        $dao = new Dao();
+        $jewel = $dao->getJewelById($idJewel);
 
-    //     header('Location: index.php?entite=cart&action=show');
-    //     exit();
-    // }
+        $favs->deletefav($jewel);
+
+        header('Location: index.php?entite=Favoris&action=showfavs');
+        exit();
+    }
 
     public function showfavs()
     {
 
-        $favs = new Favs();
+        $favs = new Favoris();
 
-        $itemfavs = $favs>getItemFavs();
-        $prixHT = $favs->prixTotal();
+        $itemfavs = $favs > getItemFavs();
 
         $view = 'favs/showFavs';
-        $paramView = ['itemFavs' => $itemfavs, 'prixHt' => $prixHT, 'css' => 'showCart'];
+        $paramView = ['itemFavs' => $itemfavs,  'css' => 'showCart'];
         $this->createView($view, $paramView);
     }
 }

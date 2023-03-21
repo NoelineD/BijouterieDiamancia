@@ -255,17 +255,23 @@ h4{
        font-size:1.5em;
       }
     
-    .filterContainer button {
-        margin-bottom:40px;
+    select{
+        margin-bottom:20px;
+        width:100px;
+        height:20px;
+        border-radius:5px;
+        background-color: #f4e2e8;
     }
 
     h4{
-        margin-bottom:30px;
+        margin-bottom:40px;
+        margin-left: 25px;
+        
     }
 
     .flex{
         display:block;
-        margin-left:20px;
+        margin-left:25px;
     }
 
     option{

@@ -48,7 +48,7 @@ text-decoration: none;
 .tabAnchor{
     position:relative;
     color:black;
-    border: 0px solid #282828;
+    border: 0px solid #F0F0F3;
     text-decoration:none;
     /* display: inline-block; */
     -webkit-transition: 0.5s ease;

@@ -83,12 +83,12 @@ class JewelModel
         $filename = $_FILES['image']['name'];
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_SPECIAL_CHARS);
         $stock = filter_input(INPUT_POST, 'stock', FILTER_SANITIZE_SPECIAL_CHARS);
-        $type = filter_input(INPUT_POST, 'id_Type', FILTER_SANITIZE_SPECIAL_CHARS);
-        $stone = filter_input(INPUT_POST, 'id_Stone', FILTER_SANITIZE_SPECIAL_CHARS);
-        $metal = filter_input(INPUT_POST, 'id_Metal', FILTER_SANITIZE_SPECIAL_CHARS);
-        $size = filter_input(INPUT_POST, 'id_Size', FILTER_SANITIZE_SPECIAL_CHARS);
+        $id_Type = filter_input(INPUT_POST, 'id_Type', FILTER_SANITIZE_SPECIAL_CHARS);
+        $id_Stone = filter_input(INPUT_POST, 'id_Stone', FILTER_SANITIZE_SPECIAL_CHARS);
+        $id_Metal = filter_input(INPUT_POST, 'id_Metal', FILTER_SANITIZE_SPECIAL_CHARS);
+        $id_Size = filter_input(INPUT_POST, 'id_Size', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        $jewel = new Jewel($title, $details, $color, $filename, $price, $stock, $type, $stone, $metal, $size);
+        $jewel = new Jewel($title, $details, $color, $filename, $price, $stock, $id_Type, $id_Stone, $id_Metal, $id_Size);
 
         $dao->setJewel($jewel);
     }

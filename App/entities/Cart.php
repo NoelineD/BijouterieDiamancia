@@ -74,5 +74,4 @@ class Cart
     {
         return count($this->cart);
     }
-    
 }

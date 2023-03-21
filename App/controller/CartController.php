@@ -64,7 +64,7 @@ class CartController extends Controller
                 exit();
         }
 
-        public function show()
+        public function showcart()
         {
 
                 $cart = new Cart();

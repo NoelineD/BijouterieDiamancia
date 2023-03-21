@@ -55,11 +55,20 @@
 
       <ul class="iconsRightContainer">
 
-        <li class="iconsSpaceRight "><i class="fa-regular fa-heart fa-xl" style="color:#3D535F"></i></li>
+        <li class="iconsSpaceRight ">
+
+          <a href="index.php?entite=favs&action=showfavs">
+            <i class="fa-regular fa-heart fa-xl" style="color:#3D535F"></i>
+          </a>
+
+        </li>
+
         <li class="iconsSpaceRight">
-          <a href="index.php?entite=cart&action=show">
+
+          <a href="index.php?entite=cart&action=showcart">
             <i class="fa-solid fa-bag-shopping fa-xl" style="color:#3D535F"></i>
           </a>
+
         </li>
         <li class="iconsSpaceRight"><label for="user"><i class="fa-regular fa-user fa-xl" style="color:#3D535F;cursor:pointer;"></i></label></li>
 

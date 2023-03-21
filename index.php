@@ -51,6 +51,12 @@ try {
             $ctrl = new CartController();
             $ctrl->execute($action);
             break;
+        case 'favs':
+            // appel du sous controleur de l'entite panier
+            // include 'controller/CartControleur.php';
+            $ctrl = new CartController();
+            $ctrl->execute($action);
+            break;
         default:
             // include 'app/controller/AppController.php';
             $controller = new AppController();

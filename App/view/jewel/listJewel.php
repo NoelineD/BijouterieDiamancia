@@ -85,10 +85,13 @@
             <!-- si l'utilisateur est connecté -->
             <?php if ($_SESSION['role'] === 'CLIENT') : ?>
 
-              <!-- <li> -->
-              <!-- mettre coeur image fontawesome pas rempli et un rempli en display:none qui apparait quand on clique sur l'image-->
-              <!-- <a href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId(); ?>">Ajouter</a>
-              </li> -->
+              <!-- <li>
+
+                <!-- mettre coeur image fontawesome pas rempli et un rempli en display:none qui apparait quand on clique sur l'image-->
+                <!-- <a href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId(); ?>">
+                  <img class="" src="/Autres/coeurvide.png"></img>
+                </a>
+              </li>  -->
 
               <li>
                 <a href="index.php?entite=jewels&action=addtocart&id=<?= $jewel->getId(); ?>">Ajouter</a>

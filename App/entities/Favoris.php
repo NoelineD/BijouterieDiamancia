@@ -29,22 +29,23 @@ class Favoris
     }
 
 
-    // Ajouter panier
 
     public function add(Jewel $jewel)
     {
-
         if (array_key_exists($jewel->getId(), $this->favs)) {
-            $this->favs[$jewel->getId()][1]++;
+            // si le bijou est déjà  dans les favs, ne rien faire
+            if (in_array($jewel, $this->favs[$jewel->getId()])) {
+                return;
+            }
+            // sinon, ajouter le bijou dans le tableau existant :/ Cas ou l'id existerait mais pas encore de bijou ou toutes les données à l'intérieur
+            $this->favs[$jewel->getId()][] = $jewel;
         } else {
-            // mettre jewel dans le panier
-            $this->favs[$jewel->getId()] = [$jewel, 1];
+            // si l'identifiant n'existe pas dans le tableau, ajouter un tableau de bijou
+            $this->favs[$jewel->getId()] = [$jewel];
         }
-        $_SESSION['cart'] = serialize($this->favs);
+        $_SESSION['favoris'] = serialize($this->favs);
     }
-
-
-     // Supprimer
+    // Supprimer
 
     public function delete(Jewel $jewel)
     {
@@ -58,7 +59,7 @@ class Favoris
         if ($this->favs[$jewel->getId()]) {
             $this->delete($jewel);
         }
-        $_SESSION['cart'] = serialize($this->favs);
+        $_SESSION['favoris'] = serialize($this->favs);
     }
 
     public function clear()

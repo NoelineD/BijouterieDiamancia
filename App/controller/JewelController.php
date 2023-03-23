@@ -200,12 +200,15 @@ class JewelController extends Controller
         $Favs = new Favoris();
 
         $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        // var_dump($idJewel);
 
         $dao = new Dao();
         $jewel = $dao->getJewelById($idJewel);
+        // var_dump($jewel);
 
         $Favs->add($jewel);
-
+        // var_dump($Favs);
+        //juste retourner bijoux $Favs->$jewel;
         header('Location:index.php?entite=jewels&action=list');
         exit();
     }

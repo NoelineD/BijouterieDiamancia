@@ -9,22 +9,6 @@ use Diamancia\App\entities\Cart;
 class FavsController extends Controller
 {
 
-    public function add()
-    {
-
-        $cart = new Cart();
-
-        $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
-        $dao = new Dao();
-        $jewel = $dao->getJewelById($idJewel);
-
-        $cart->add($jewel);
-
-        header('Location: index.php?entite=Favs&action=show');
-        exit();
-    }
-
 
     public function delete()
     {
@@ -47,10 +31,10 @@ class FavsController extends Controller
 
         $favs = new Favoris();
 
-        $itemfavs = $favs > getItemFavs();
+        $jewels = $favs -> getItemFavs();
 
         $view = 'favs/showFavs';
-        $paramView = ['itemFavs' => $itemfavs,  'css' => 'showCart'];
+        $paramView = ['jewels' => $jewels,  'css' => 'showCart'];
         $this->createView($view, $paramView);
     }
 }

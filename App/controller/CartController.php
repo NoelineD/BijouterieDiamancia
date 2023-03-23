@@ -44,7 +44,7 @@ class CartController extends Controller
 
                 $cart->add($jewel);
 
-                header('Location: index.php?entite=cart&action=show');
+                header('Location: index.php?entite=cart&action=showcart');
                 exit();
         }
 
@@ -60,7 +60,7 @@ class CartController extends Controller
 
                 $cart->remove($wine);
 
-                header('Location: index.php?entite=cart&action=show');
+                header('Location: index.php?entite=cart&action=showcart');
                 exit();
         }
 

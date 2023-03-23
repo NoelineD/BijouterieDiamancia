@@ -57,7 +57,7 @@
 
         <li class="iconsSpaceRight ">
 
-          <a href="index.php?entite=favs&action=showfavs">
+          <a href="index.php?entite=favoris&action=showfavs">
             <i class="fa-regular fa-heart fa-xl" style="color:#3D535F"></i>
           </a>
 

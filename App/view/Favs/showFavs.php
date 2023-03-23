@@ -15,17 +15,17 @@
                 <th>Supprimer</th>
             </tr>
             <?php
-            foreach ($itemFavs as $item) {
+            foreach ($jewels as $jewel) {
                 echo '<tr>
-            <td>' . $item->getTitle() . '</td>
-            <td> <img src="/App/Assets/' . $item->getImage_name() . '"class="imgArticle"/></td>
+            <td>' . $jewel->getTitle() . '</td>
+            <td> <img src="/App/Assets/' . $jewel->getImage_name() . '"class="imgArticle"/></td>
             <td class="btnFont"><a class=" btn"
-                 href="index.php?entite=favoris&action=add&id=' . $item->getId() . '">
+                 href="index.php?entite=favoris&action=add&id=' . $jewel->getId() . '">
                  +</a>
             </td>
              <td class="btnFont"><a class=" btn"
-                 href="index.php?entite=favoris&action=remove&id=' . $item->getId() . '">
-                 +</a>
+                 href="index.php?entite=favoris&action=remove&id=' . $jewel->getId() . '">
+                 -</a>
             </td>
         </tr>';
             }

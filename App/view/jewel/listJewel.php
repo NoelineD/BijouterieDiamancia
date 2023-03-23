@@ -81,17 +81,16 @@
           </figure>
           <p> <?= $jewel->getPrice(); ?> &euro;</p>
 
-          <ul>
-            <!-- si l'utilisateur est connecté -->
-            <?php if ($_SESSION['role'] === 'CLIENT') : ?>
 
-              <!-- <li>
+          <?php if ($_SESSION['role'] === 'CLIENT') : ?>
+            <!-- mettre coeur image fontawesome pas rempli et un rempli en display:none qui apparait quand on clique sur l'image-->
+            <a id="containerimgheart" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId(); ?>">
+              <img id="imgHeart" src="/Autres/coeurvide.png"></img>
+            </a>
 
-                <!-- mettre coeur image fontawesome pas rempli et un rempli en display:none qui apparait quand on clique sur l'image-->
-                <!-- <a href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId(); ?>">
-                  <img class="" src="/Autres/coeurvide.png"></img>
-                </a>
-              </li>  -->
+
+            <ul>
+              <!-- si l'utilisateur est connecté -->
 
               <li>
                 <a href="index.php?entite=jewels&action=addtocart&id=<?= $jewel->getId(); ?>">Ajouter</a>
@@ -110,7 +109,7 @@
               </li>
             <?php endif ?>
 
-          </ul>
+            </ul>
 
         </div>
         <br>

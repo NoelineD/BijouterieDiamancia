@@ -26,9 +26,12 @@ class Cart
         return $this->cart;
     }
 
+    // on ajoute au panier le bijou ou bien on rajoute un à la quantité en incrementant
+
     public function add(Jewel $jewel)
     {
 
+        // si l'id existe déjà dans ce panier incrémente de 1, sinon ajoute le , valeur quantité bijou 1
         if (array_key_exists($jewel->getId(), $this->cart)) {
             $this->cart[$jewel->getId()][1]++;
         } else {

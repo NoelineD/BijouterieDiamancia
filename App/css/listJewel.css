@@ -99,6 +99,22 @@ h4{
       box-shadow: 4px 4px 6px 4px #0000004d;
   }
 
+    #containerimgheart{
+        position:absolute;
+        border: solid 0px #000;
+        top:45%;
+        left:70%;
+    }
+
+    #imgHeart{
+        width: 20px;
+        height: 20px;
+    }
+
+    /* .iconheart{
+        height: 50px;
+        width: 50px;
+    } */
 
     .containerBottom {
       /* padding:0; probleme de padding à gauche du container */

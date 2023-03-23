@@ -53,12 +53,12 @@ class CartController extends Controller
 
                 $cart = new Cart();
 
-                $idVin = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+                $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
                 $dao = new Dao();
-                $wine = $dao->getJewelById($idVin);
+                $Jewel = $dao->getJewelById($idJewel);
 
-                $cart->remove($wine);
+                $cart->remove($jewel);
 
                 header('Location: index.php?entite=cart&action=showcart');
                 exit();

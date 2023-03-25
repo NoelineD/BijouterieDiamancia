@@ -72,7 +72,7 @@ class Dao
         $user_stat->execute($param);
     }
 
-    
+
     //*********************************** Parie Jewel ***************************************//
 
     // ListJewel récupère tout les bijoux Cards
@@ -103,7 +103,45 @@ class Dao
         return $jewels;
     }
 
-     // ListRing récupère toutes les bagues en fonction des filtres et les met dans les Cards
+    // ListNecklace récupère toutes les bagues Cards
+
+    public function getAllNecklace(): array
+    {
+
+        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 1 ORDER BY RAND()';
+        $jewel_statement = $this->dbconnect->query($sql);
+        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        //Fetch props late= si utilisé avec fetch class le constructeur de la classe appelé avant que les propriétés ne soit assignées à partir des valeurs de colonnes respectives
+        $jewels = $jewel_statement->fetchAll();
+        // fetchAll permet de recuperer tout les resultats et retourner un tableau de bijoux
+        return $jewels;
+    }
+
+    public function getAllBracelets(): array
+    {
+
+        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 3 ORDER BY RAND()';
+        $jewel_statement = $this->dbconnect->query($sql);
+        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        //Fetch props late= si utilisé avec fetch class le constructeur de la classe appelé avant que les propriétés ne soit assignées à partir des valeurs de colonnes respectives
+        $jewels = $jewel_statement->fetchAll();
+        // fetchAll permet de recuperer tout les resultats et retourner un tableau de bijoux
+        return $jewels;
+    }
+
+    public function getAllEarrings(): array
+    {
+
+        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 4 ORDER BY RAND()';
+        $jewel_statement = $this->dbconnect->query($sql);
+        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        //Fetch props late= si utilisé avec fetch class le constructeur de la classe appelé avant que les propriétés ne soit assignées à partir des valeurs de colonnes respectives
+        $jewels = $jewel_statement->fetchAll();
+        // fetchAll permet de recuperer tout les resultats et retourner un tableau de bijoux
+        return $jewels;
+    }
+
+    // ListRing récupère toutes les bagues en fonction des filtres et les met dans les Cards
 
     // public function getRingsFiltered($filters): array
     // {
@@ -112,7 +150,7 @@ class Dao
 
     //     // J'ajoute les filtres
     //     // si le paramètre est metal alors on ajoute la correspondance entre le filtre et ma table metal dans la base de donnée
-        
+
     //     if (isset($filters['metal'])) {
     //         //on concatene on ajoute à la variable sql avec le .=
     //         $sql .= ' AND `metal` = :metal';
@@ -169,7 +207,7 @@ class Dao
 
     //To modify jewels
 
-   
+
     //*********************************** Partie JEWEL ADMIN***************************************//
 
     public function setjewel(Jewel $jewel)
@@ -244,7 +282,7 @@ class Dao
         return $art;
     }
 
-     // Page seeJewels pour voir le bijou et ses infos correspondant à un id 
+    // Page seeJewels pour voir le bijou et ses infos correspondant à un id 
 
     public function getJewelById(int $id): Jewel
     {

@@ -32,6 +32,7 @@ class CartController extends Controller
         //         exit();
         //     }
 
+        // ajouter une 1 quantité à l'article
         public function add()
         {
 
@@ -48,6 +49,7 @@ class CartController extends Controller
                 exit();
         }
 
+        // supprimer une 1 quantité à l'article
         public function remove()
         {
 
@@ -56,7 +58,7 @@ class CartController extends Controller
                 $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
                 $dao = new Dao();
-                $Jewel = $dao->getJewelById($idJewel);
+                $jewel = $dao->getJewelById($idJewel);
 
                 $cart->remove($jewel);
 

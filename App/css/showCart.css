@@ -1,5 +1,5 @@
 .main{
-    min-height: 1500px;
+    min-height: 1700px;
 }
 
 .introFigcaption {
@@ -71,17 +71,17 @@ padding-left: 5.5px;
   @media (min-width:600px) {
       
 .introFigure{
-    margin-bottom:100px;
+    margin-bottom:140px;
 }
 
 .introFigcaption{
     font-size: 2.2em;
     width:20%;
-    top: 94%;
+    top: 98%;
 }
 
 .introImg {
-    max-height: 440px;
+    max-height: 470px;
     width: auto;
 }
 

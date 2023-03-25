@@ -52,6 +52,34 @@ class JewelModel
         return $tabJewels;
     }
 
+    public function listNecklace()
+    {
+
+        $dao = new Dao();
+
+        $tabJewels = $dao->getAllNecklace();
+        return $tabJewels;
+    }
+
+    public function listBracelets()
+    {
+
+        $dao = new Dao();
+
+        $tabJewels = $dao->getAllBracelets();
+        return $tabJewels;
+    }
+
+    public function listEarrings()
+    {
+
+        $dao = new Dao();
+
+        $tabJewels = $dao->getAllEarrings();
+        return $tabJewels;
+    }
+
+
     // public function listRingFiltered($filters)
     // {
     //     $dao = new Dao();

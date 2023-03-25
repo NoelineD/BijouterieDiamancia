@@ -4,7 +4,6 @@ namespace Diamancia\App\controller;
 
 use Diamancia\App\model\JewelModel;
 use Diamancia\App\entities\Cart;
-// use Diamancia\App\entities\Jewel;
 use Diamancia\App\dao\Dao;
 use Diamancia\App\entities\Favoris;
 
@@ -29,6 +28,21 @@ class JewelController extends Controller
         $nbrJewel = $cart->nbrArticle();
         $view = 'jewel/listJewel';
         $paramView = ['css' => 'listJewel', 'jewels' => $tabJewels, 'jewelslimit' => $tabJewelsLimit];
+        // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
+        $this->createView($view, $paramView);
+    }
+
+    public function details()
+    {
+
+        $model = new JewelModel();
+        $tabJewels = $model->listJewel();
+        // var_dump($tabJewelsLimit); 
+        // affiche le contenu de la variable dans le nav
+        $cart = new Cart();
+        $nbrJewel = $cart->nbrArticle();
+        $view = 'jewel/detailsJewel';
+        $paramView = ['css' => 'listJewel', 'jewels' => $tabJewels];
         // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
         $this->createView($view, $paramView);
     }
@@ -90,11 +104,65 @@ class JewelController extends Controller
         // var_dump($tabJewelsLimit); 
         // affiche le contenu de la variable dans le nav
 
-        // On instancie le panier
+        // On instancie le panier, nmbr article pour quand on ajoutera au panier que le compte soit fait dans le panier
         $cart = new Cart();
         $nbrJewel = $cart->nbrArticle();
         $view = 'jewel/listRing';
         $paramView = ['css' => 'listJewel', 'rings' => $tabRings, 'jewelslimit' => $tabJewelsLimit];
+        // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
+        $this->createView($view, $paramView);
+    }
+
+    public function listofnecklaces()
+    {
+        $model = new JewelModel();
+
+        $tabNecklace = $model->listNecklace();
+
+        // on passe aussi cette autre méthode pour les cardHearts avec une limite de 20
+        $tabJewelsLimit = $model->listJewelsWithLimit(20);
+
+        // On instancie le panier, nmbr article pour quand on ajoutera au panier que le compte soit fait dans le panier
+        $cart = new Cart();
+        $nbrJewel = $cart->nbrArticle();
+        $view = 'jewel/listNecklace';
+        $paramView = ['css' => 'listJewel', 'necklaces' => $tabNecklace, 'jewelslimit' => $tabJewelsLimit];
+        // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
+        $this->createView($view, $paramView);
+    }
+
+    public function listofbracelets()
+    {
+        $model = new JewelModel();
+
+        $tabBracelets = $model->listBracelets();
+
+        // on passe aussi cette autre méthode pour les cardHearts avec une limite de 20
+        $tabJewelsLimit = $model->listJewelsWithLimit(20);
+
+        // On instancie le panier, nmbr article pour quand on ajoutera au panier que le compte soit fait dans le panier
+        $cart = new Cart();
+        $nbrJewel = $cart->nbrArticle();
+        $view = 'jewel/listBracelets';
+        $paramView = ['css' => 'listJewel', 'bracelets' => $tabBracelets, 'jewelslimit' => $tabJewelsLimit];
+        // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
+        $this->createView($view, $paramView);
+    }
+
+    public function listofearrings()
+    {
+        $model = new JewelModel();
+
+        $tabEarrings = $model->listEarrings();
+
+        // on passe aussi cette autre méthode pour les cardHearts avec une limite de 20
+        $tabJewelsLimit = $model->listJewelsWithLimit(20);
+
+        // On instancie le panier, nmbr article pour quand on ajoutera au panier que le compte soit fait dans le panier
+        $cart = new Cart();
+        $nbrJewel = $cart->nbrArticle();
+        $view = 'jewel/listEarrings';
+        $paramView = ['css' => 'listJewel', 'earrings' => $tabEarrings, 'jewelslimit' => $tabJewelsLimit];
         // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
         $this->createView($view, $paramView);
     }
@@ -178,6 +246,7 @@ class JewelController extends Controller
         exit();
     }
 
+    // ajouter un article dans le panier si l'id ni est pas déjà (methode add)
     public function addtocart()
     {
 
@@ -194,21 +263,42 @@ class JewelController extends Controller
         exit();
     }
 
+    // public function addtofavs()
+    // {
+
+    //     $Favs = new Favoris();
+
+    //     $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    //     // var_dump($idJewel);
+
+    //     $dao = new Dao();
+    //     $jewel = $dao->getJewelById($idJewel);
+    //     // var_dump($jewel);
+
+    //     $Favs->add($jewel);
+    //     // var_dump($Favs);
+    //     //juste retourner bijoux $Favs->$jewel;
+    //     header('Location:index.php?entite=jewels&action=list');
+    //     exit();
+    // }
+
     public function addtofavs()
     {
-
-        $Favs = new Favoris();
-
         $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        // var_dump($idJewel);
 
         $dao = new Dao();
         $jewel = $dao->getJewelById($idJewel);
-        // var_dump($jewel);
 
-        $Favs->add($jewel);
-        // var_dump($Favs);
-        //juste retourner bijoux $Favs->$jewel;
+        // Récupérer les favoris de la session
+        $favs = isset($_SESSION['favoris']) ? unserialize($_SESSION['favoris']) : [];
+
+        // Ajouter le bijou aux favoris
+        if (!in_array($jewel, $favs)) {
+            $favs[] = $jewel;
+            $_SESSION['favoris'] = serialize($favs);
+        }
+
+        // Rediriger vers la liste de bijoux
         header('Location:index.php?entite=jewels&action=list');
         exit();
     }

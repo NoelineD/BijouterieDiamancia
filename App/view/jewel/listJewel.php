@@ -76,17 +76,24 @@
         <div class="card">
           <figure>
             <!-- <img src="Assets/" alt="image article" /> -->
-            <img src="/App/Assets/<?= $jewel->getImage_name(); ?>" alt="image article" />
+            <a id="linkdetails" href="index.php?entite=jewels&action=details&id=<?= $jewel->getId(); ?>">
+              <img src="/App/Assets/<?= $jewel->getImage_name(); ?>" alt="image article" />
+            </a>
             <figcaption><?= $jewel->getTitle(); ?></figcaption>
           </figure>
           <p> <?= $jewel->getPrice(); ?> &euro;</p>
 
 
           <?php if ($_SESSION['role'] === 'CLIENT') : ?>
-            <!-- mettre coeur image fontawesome pas rempli et un rempli en display:none qui apparait quand on clique sur l'image-->
-            <a id="containerimgheart" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId(); ?>">
-              <img id="imgHeart" src="/Autres/coeurvide.png"></img>
-            </a>
+
+            <!-- si la variable de session existe, que la variable de session est converti en tableau (unserialise) que le bijou actuel est present dans l'array
+  alors on affiche coeur plein sinon on affiche plein car l'utilisateur a ajouté dans les -->
+
+            <?php if (isset($_SESSION['favoris']) && in_array($jewel, unserialize($_SESSION['favoris']))) : ?>
+              <a id="containerImgFavs" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId() ?>" class="btn-favorite"><img id="imgFavsFull" src="/Autres/coeurplein2 (2).png"></a>
+            <?php else : ?>
+              <a id="containerImgFavs" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId() ?>" class="btn-favorite"><img src="/Autres/coeurvide.png" id="imgFavsEmpty"></a>
+            <?php endif; ?>
 
 
             <ul>
@@ -155,3 +162,47 @@
     </div>
   </div>
 </div>
+<script>
+  // on utilise jQuery pour ajouter un comportement de favori interactif sur un btn
+  //when ready quand le doc est pret a etre manipulé donc clic le code est éxécuté
+  $(document).ready(function() {
+    // Quand l'utilisateur clique sur un bouton de favori, on crée l'evenement 
+    $('.favorite-btn').click(function(event) {
+      event.preventDefault(); // Empêche le comportement par défaut de la balise <a>
+
+      // Stocke la balise <a> dans une variable pour une utilisation ultérieure
+      var btn = $(this);
+
+      // Récupère l'ID de l'article à ajouter/supprimer des favoris grace a l'attribut href ou j'ai mis mon id
+
+      var articleId = btn.attr('href').split('=')[1];
+
+      // Envoie une requête AJAX pour ajouter/supprimer l'article des favoris de l'utilisateur
+      //qui s'occupe d'ajouter supp grace au add remove
+      // $ = raccourci jquery, signifie on fait une requete de methode ajax, simplifie l'acces aux fonction, data = nom de la donnée a envoyé a la requete ajax
+      $.ajax({
+        type: 'POST',
+        url: 'add_remove_favorite.php',
+        data: {
+          article_id: articleId
+        },
+        // si operation reussi ok le script envoie une reponse
+        success: function(response) {
+          // Met à jour l'état du coeur en modifiant la classe de la balise <a>
+          // si l'operation reussit, le script envoie une reponse, si ajouté aux favs alors le btn ajoute la classe favorite et l'icone coeur vide est remplacé par plein
+          if (response === 'added') {
+            btn.addClass('favorite');
+            btn.find('.empty-heart').hide();
+            btn.find('.full-heart').show();
+
+          } else if (response === 'removed') {
+            btn.removeClass('favorite');
+            btn.find('.full-heart').hide();
+            btn.find('.empty-heart').show();
+          }
+          // cas opposé on enleve la class, on cache le coeur plein et on remet le coeur vide car plus present dans favvs
+        }
+      });
+    });
+  });
+</script>

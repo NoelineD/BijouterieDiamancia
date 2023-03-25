@@ -2,26 +2,20 @@
     <div class="mainContainer">
         <figure class="introFigure">
 
-            <figcaption class="introFigcaption">Votre article</figcaption>
+            <figcaption class="introFigcaption">Votre Panier</figcaption>
             <img class="introImg" src="/Autres/collierAigue52.jpg" alt="introImg" style="width:100%">
 
         </figure>
 
-        <table class="table">
-            <tr class="">
-                <th class="name">Nom de l'article</th>
-                <th>Image Produit</th>
-                <th>Quantité</th>
-                <th>Prix Unitaire</th>
-                <th>Ajouter</th>
-            </tr>
+        <div class="table">
             <?php
-            foreach ($itemCarts as $key => $item) {
+            foreach ($jewels as $jewel) {
                 echo '<tr>
-            <td>' . $item[0]->getTitle() . '</td>
-            <td> <img src="/App/Assets/' . $item[0]->getImage_name() . '"class="imgArticle"/></td>
-            <td>' . $item[1] . '</td>
-            <td>' . $item[0]->getPrice() . ' &euro;</td>
+            <img src="/App/Assets/' . $jewel->getImage_name() . '"class="imgArticle"/>
+            <p>' . $jewel->getTitle() . '</p>
+            <p>' . $jewel->getPrice() . ' &euro;</p>
+            <p>' . $jewel->getDetails() . '</p>
+            <p>' . $jewel->getDetails() . '</p>
             <td class="btnFont"><a class=" btn"
                  href="index.php?entite=cart&action=add&id=' . $item[0]->getId() . '">
                  +</a>
@@ -33,7 +27,7 @@
             }
             echo '<tr><td colspan="2" class="totalPrice">Prix Total:  ' . $prixHt . ' &euro;</td></tr>';
             ?>
-        </table>
+        </div>
 
     </div>
 </main>

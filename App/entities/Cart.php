@@ -8,17 +8,21 @@ class Cart
 
     public function __construct()
     {
+        // s'il n'y a pas de session cart on la serialise en creant un tableau vide comme objet [] tableau dans lequel 
+        // on va mettre nos 2 tableaux un avec les infos bijou et autre avec qtt
 
         if (!isset($_SESSION['cart'])) {
             // [
-            //    '1' => [vin1, qtt],
-            //    '2' => [vin2, qqt]
+            //    '1' => [jewel1, qtt],
+            //    '2' => [jewel2, qqt]
             // ]
             $_SESSION['cart'] = serialize([]);
         }
         $this->cart = unserialize($_SESSION['cart']);
         //print_r($this->cart);
     }
+
+    // Faire retourner les articles sur la page qu'on affiche en cliquant sur le panier
 
     public function getItemCart()
     {

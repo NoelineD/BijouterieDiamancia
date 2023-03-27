@@ -34,14 +34,13 @@
 
   h2 {
       font-size: 0.9em;
-      margin: 5%;
+      margin-top: 25px;
+      margin-left:3%;
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .presentation {
       display: block;
-      height: 8em;
-      width: 80%;
       margin: 15% 0 15% 10%;
   }
 
@@ -57,8 +56,7 @@
   }
 
   .roundImg {
-    /* 20% du container pour égaliser la taille des img */
-      width: 20%;
+      
       border-radius: 50%;
       background-color: #D78884;
   }
@@ -70,7 +68,6 @@
   .displayStone{
     /* background-color: #c5bfbf; */
     display:flex;
-    height: 120px;
     width: 100%;
     align-items: center;
     border-top: 1px solid #c5bfbf;
@@ -85,6 +82,11 @@
     white-space: normal;
     word-wrap: break-word;
     /* pour ne pas que ça coupe un mot ajouter */
+  }
+
+  .fontStyle {
+    font-weight: bold;
+    text-align: center;
   }
 
   h4{
@@ -105,7 +107,6 @@
     figcaption {
         font-size: 0.6em;
         top: 20%;
-        width: 70%;
         left: 50%;
     }
 
@@ -120,6 +121,11 @@
         bottom: 10%;
     }
 
+    .presentation {
+        height: 8em;
+        width: 80%;
+    }
+
     #blocVideo {
         position: relative;
         max-height: 550px;
@@ -132,94 +138,168 @@
     }
 
     .roundImg {
-        height: 90px;
+        width: 100px;
+    }
 
+    .displayStone {
+        height: 120px;
+    }
+
+    .description {
+        height: 100px;
+        width: 380px;
+        padding: 15px;
+    }
+
+    .fontStyle {
+        font-size: x-large;
+    }
+    
+    h4 {
+        margin-bottom: 5px;
+    }
+    
+    .description p {
+        font-size: 0.7em;
     }
    }
 
-   @media (min-width:768px) and (max-width:1024px) {
+   @media (min-width:768px) and (max-width:1023.9px) {
 
-        .introImg {
-            height: 450px;
-            width: auto;
-            object-fit: cover;
+    .introImg {
+        height: 550px;
+        width: auto;
+        object-fit: cover;
+    }
+
+    figcaption {
+        font-size: 1em;
+        top: 20%;
+        /* width:50%; */
+        left: 50%;
+       }
+
+    cite {
+        font-size: inherit;
+        font-size: 1.7em;
+    }
+
+    .btnImg {
+        font-size: 1em;
+        right: 5%;
+        bottom: 10%;
+    }
+
+    .presentation {
+        height: 8em;
+        width: 80%;
+    }
+
+    #blocVideo {
+        position:relative;
+        max-height: 550px;
+        width: 100%;
+    }
+
+    #video {
+        object-fit: cover;
+        max-height: 550px;
+        width: 100%;
+    }
+
+    .roundImg {
+        width: 130px;
+    }
+
+    .displayStone {
+        height: 140px;
+    }
+    
+    .description {
+        height: 110px;
+        width: 600px;
+        padding: 15px;
         }
 
-       figcaption {
-           font-size: 1em;
-           top: 20%;
-           width: 70%;
-           left: 50%;
-       }
-
-       cite {
-           font-size: inherit;
-           font-size: 1.7em;
-       }
-
-       .btnImg {
-           font-size: 1em;
-           right: 5%;
-           bottom: 10%;
-       }
-
-       #blocVideo {
-           position: relative;
-           max-height: 550px;
-           width: 100%;
-       }
-
-       #video {
-           max-height: 550px;
-           width: 100%;
-       }
-
-       .roundImg {
-           height: 150px;
-
-       }
+    .fontStyle {
+        font-size: x-large;
+    }
+    
+    h4 {
+        margin-bottom: 5px;
+    }
+    
+    .description p {
+        font-size: 1em;
+    }
    }
 
-        @media (min-width:1024px) and (max-width:1080px) {
+ @media (min-width:1024px){
     
-            .introImg {
-                height: 450px;
-                width: auto;
-                object-fit: cover;
-            }
+    .introImg {
+        height: 450px;
+        width: auto;
+        object-fit: cover;
+    }
     
-            figcaption {
-                font-size: 1em;
-                top: 20%;
-                width: 70%;
-                left: 50%;
-            }
+    figcaption {
+        font-size: 1em;
+        top: 20%;
+        /* max-width: 75%; */
+        left: 50%;
+    }
     
-            cite {
-                font-size: inherit;
-                font-size: 1.7em;
-            }
+    cite {
+        font-size: inherit;
+        font-size: 1.7em;  
+    }
     
-            .btnImg {
-                font-size: 1em;
-                right: 5%;
-                bottom: 10%;
-            }
+    .btnImg {
+        font-size: 1em;
+        right: 5%;   
+        bottom: 10%;
+    }
     
-            #blocVideo {
-                position: relative;
-                max-height: 550px;
-                width: 100%;
-            }
+    .presentation {
+        height: 5em;
+        width: 80%;
+    }
     
-            #video {
-                max-height: 550px;
-                width: 100%;
-            }
+    .fontStyle {
+        font-size:xx-large;
+    }
+
+    #blocVideo {
+        max-height: 550px;
+        width: 100%;
+    }
     
-            .roundImg {
-                height: 150px;
+    #video {
+        max-height: 550px;
+        width: 100%;
+    }
     
-            }
+    .roundImg {
+        width: 170px;
+    }
+    
+    .displayStone {
+        height: 185px;
+    }
+    
+    .description {
+        height: 110px;
+        width: 900px;
+        padding: 15px;
+        /* background-color: #D78884; */
+    }
+    
+    h4 {
+        margin-bottom: 15px;
+    }
+    
+        .description p {
+            font-size: 0.8em;
+        }
         }
 

@@ -1,33 +1,30 @@
-<main>
+<!-- <main> -->
     <div class="mainContainer">
-        <figure class="introFigure">
+        <!-- <figure class="introFigure">
 
             <figcaption class="introFigcaption">Votre Panier</figcaption>
             <img class="introImg" src="/Autres/collierAigue52.jpg" alt="introImg" style="width:100%">
 
-        </figure>
+        </figure> -->
 
-        <div class="table">
+        <div class="Containerdetails">
             <?php
             foreach ($jewels as $jewel) {
-                echo '<tr>
+                echo '
             <img src="/App/Assets/' . $jewel->getImage_name() . '"class="imgArticle"/>
+            <div>
             <p>' . $jewel->getTitle() . '</p>
             <p>' . $jewel->getPrice() . ' &euro;</p>
             <p>' . $jewel->getDetails() . '</p>
-            <p>' . $jewel->getDetails() . '</p>
-            <td class="btnFont"><a class=" btn"
-                 href="index.php?entite=cart&action=add&id=' . $item[0]->getId() . '">
-                 +</a>
-                 <a class="btn btnMinus"
-                 href="index.php?entite=cart&action=remove&id=' . $item[0]->getId() . '">
-                 -</a>
-            </td>
-        </tr>';
+            <p>Pierre: ' . $jewel->getNameStone() . '</p>
+            <p>Metal: ' . $jewel->getNameMetal() . '</p>
+            <p>Taille: ' . $jewel->getNbrSize() . '</p>
+            <a href="index.php?entite=jewels&action=addtocart&id=' . $jewel->getId() . '">Ajouter au panier</a>
+            </div>';
             }
-            echo '<tr><td colspan="2" class="totalPrice">Prix Total:  ' . $prixHt . ' &euro;</td></tr>';
             ?>
         </div>
 
+
     </div>
-</main>
+<!-- </main> -->

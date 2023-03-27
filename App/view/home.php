@@ -22,20 +22,88 @@
 
   <h2>Découvrez nos pierres précieuses et leurs atouts :</h2> <br><br>
 
-  <div>
+  <div class="containerStones">
 
-    <img class="roundImg" src="App/Assets/Pierres/Diamond.png" alt="introImg">
-    <div class="gridImg">
-      <img class="roundImg" src="App/Assets/Pierres/aigueMarine.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/amethyste2.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/opale.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/ruby2.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/Saphir.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/quartzrose2.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/topaze.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/emeraude.png" alt="roundImg">
-      <img class="roundImg" src="App/Assets/Pierres/tourmaline2.png" alt="roundImg">
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/Diamond.png" alt="roundimg">
+      <div class="description">
+        <h4>Le Diamant</h4>
+        <P>LOR EM IPSUUUUUUUUUU UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
     </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/aigueMarine.png" alt="roundImg">
+      <div class="description">
+        <h4>L'Aigue Marine</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/amethyste2.png" alt="roundImg">
+      <div class="description">
+        <h4>L'Améthyste</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/opale.png" alt="roundImg">
+      <div class="description">
+        <h4>L'Opale'</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/ruby2.png" alt="roundImg">
+      <div class="description">
+        <h4>Le Ruby</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/Saphir.png" alt="roundImg">
+      <div class="description">
+        <h4>Le Saphir</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/quartzrose2.png" alt="roundImg">
+      <div class="description">
+        <h4>Le Quartz Rose</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/topaze.png" alt="roundImg">
+      <div class="description">
+        <h4>Le Topaze</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/emeraude.png" alt="roundImg">
+      <div class="description">
+        <h4>L'Emeraude'</h4>
+        <P>LOREM IPSUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
+    <div class="displayStone">
+      <img class="roundImg" src="App/Assets/Pierres/tourmaline2.png" alt="roundImg">
+      <div class="description">
+        <h4>La Tourmaline</h4>
+        <P>LOREM IPSU UUUUUUUUUUUU UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+      </div>
+    </div>
+
   </div>
 
 

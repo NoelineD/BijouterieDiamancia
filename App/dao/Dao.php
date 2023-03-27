@@ -291,6 +291,25 @@ class Dao
         $jewel_statement->bindParam(':id', $id);
         $jewel_statement->execute();
         $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        // la méthode setFetchMode() est utilisée pour récupérer les résultats sous forme d'objets de la classe Jewel
+        $jewel = $jewel_statement->fetch();
+        return $jewel;
+    }
+
+    public function getJeweldetailsById(int $id): Jewel
+    {
+        $sql = 'SELECT articles.id_Article, articles.title, articles.details, articles.image_name, articles.price, articles.id_type,articles.id_stone,articles.id_metal,
+                metal.name_metal,size.number_size,stone.name_stone
+                FROM articles
+                INNER JOIN metal ON articles.id_metal = metal.id_metal
+                INNER JOIN stone ON articles.id_stone = stone.id_stone
+                INNER JOIN size ON articles.id_size = size.id_size
+                WHERE articles.id_Article = :id';
+
+        $jewel_statement = $this->dbconnect->prepare($sql);
+        $jewel_statement->bindParam(':id', $id);
+        $jewel_statement->execute();
+        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
         $jewel = $jewel_statement->fetch();
         return $jewel;
     }

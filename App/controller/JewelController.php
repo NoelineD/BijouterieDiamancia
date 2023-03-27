@@ -34,15 +34,16 @@ class JewelController extends Controller
 
     public function details()
     {
+        $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-        $model = new JewelModel();
-        $tabJewels = $model->listJewel();
-        // var_dump($tabJewelsLimit); 
-        // affiche le contenu de la variable dans le nav
-        $cart = new Cart();
-        $nbrJewel = $cart->nbrArticle();
+        $dao = new Dao();
+        $detailsJewels = $dao->getJeweldetailsById($idJewel);
+
+        // $cart = new Cart();
+        // $nbrJewel = $cart->nbrArticle();
+
         $view = 'jewel/detailsJewel';
-        $paramView = ['css' => 'listJewel', 'jewels' => $tabJewels];
+        $paramView = ['css' => 'listJewel', 'jewels' => $detailsJewels];
         // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
         $this->createView($view, $paramView);
     }

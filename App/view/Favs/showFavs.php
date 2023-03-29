@@ -19,8 +19,8 @@
             <?php
             foreach ($jewels as $jewel) {
                 //  foreach ($jewels as  $key $jewel) {
-                if (is_object($jewel)) {
-                    echo '<tr>
+                // if (is_object($jewel)) {
+                echo '<tr>
             <td>' . $jewel->getTitle() . '</td>
             <td> <img src="/App/Assets/' . $jewel->getImage_name() . '"class="imgArticle"/></td>
             <td>' . $jewel->getPrice() . '</td>
@@ -33,9 +33,9 @@
                  supprimer</a>
             </td>
         </tr>';
-                }
             }
-               
+            // }
+
             ?>
         </table>
 

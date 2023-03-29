@@ -3,7 +3,7 @@
   <figure class="introFigure">
 
     <figcaption class="introFigcaption">Tous nos bijoux</figcaption>
-    <img class="introImg" src="/Autres/banner.png" alt="introImg" style="width:100%">
+    <img class="introImg" src="/Autres/banner.png" alt="introImg">
 
   </figure>
 

@@ -2,8 +2,8 @@
 
     <figure class="introFigure">
 
-        <figcaption class="introFigcaption">Nos colliers</figcaption>
-        <img class="introImg" src="/Autres/collier2.jpg" alt="introImg" style="width:100%" img>
+        <figcaption class="introFigPink">Nos colliers</figcaption>
+        <img class="introImg" src="/Autres/collier2.jpg" alt="introImg">
 
     </figure>
 

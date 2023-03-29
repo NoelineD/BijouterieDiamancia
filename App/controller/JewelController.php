@@ -6,6 +6,7 @@ use Diamancia\App\model\JewelModel;
 use Diamancia\App\entities\Cart;
 use Diamancia\App\dao\Dao;
 use Diamancia\App\entities\Favoris;
+use Exception;
 
 // use Diamancia\App\controller\Controller;
 
@@ -37,13 +38,22 @@ class JewelController extends Controller
         $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
         $dao = new Dao();
-        $detailsJewels = $dao->getJeweldetailsById($idJewel);
 
+        try {
+        $jewels = $dao->getJeweldetailsById($idJewel);
+        } catch (Exception $e) {
+            // Afficher le message d'erreur à l'utilisateur
+            echo 'Une erreur s\'est produite: ' . $e->getMessage();
+            // Enregistrer l'erreur dans le fichier de journal
+            error_log('Une erreur s\'est produite: ' . $e->getMessage());
+            return;
+        return;
+        }
         // $cart = new Cart();
         // $nbrJewel = $cart->nbrArticle();
 
         $view = 'jewel/detailsJewel';
-        $paramView = ['css' => 'listJewel', 'jewels' => $detailsJewels];
+        $paramView = ['css' => 'detailsJewel', 'jewels' => $jewels];
         // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
         $this->createView($view, $paramView);
     }

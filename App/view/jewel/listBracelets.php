@@ -3,7 +3,7 @@
     <figure class="introFigure">
 
         <figcaption class="introFigcaption">Nos Bracelets</figcaption>
-        <img class="introImg" src="/Autres/bracelet.jpg" alt="introImg" style="width:100%" img>
+        <img class="introImg" src="/Autres/bracelet.jpg" alt="introImg">
 
     </figure>
 

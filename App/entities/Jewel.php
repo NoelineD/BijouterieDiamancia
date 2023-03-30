@@ -102,7 +102,7 @@ class Jewel
         return $this->stock;
     }
 
-     // Récuperation de l'entité type et getter id + Name séparé pour pouvoir les appeler séparément
+    // Récuperation de l'entité type et getter id + Name séparé pour pouvoir les appeler séparément
     public function getTypeTab(): Type
     {
         return new Type($this->id_Type, $this->type_name);
@@ -164,13 +164,13 @@ class Jewel
         return $this->number_size;
     }
 
-    public static function fromArray(array $props): Jewel
-    {
-        $jewel = new Jewel();
-        foreach ($props as $prop => $value) {
-            $jewel->$prop = $value;
-        }
-        return $jewel;
-    }
+    // public static function fromArray(array $props): Jewel
+    // {
+    //     $jewel = new Jewel();
+    //     foreach ($props as $prop => $value) {
+    //         $jewel->$prop = $value;
+    //     }
+    //     return $jewel;
+    // }
 }
 

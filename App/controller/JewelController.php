@@ -18,6 +18,8 @@ class JewelController extends Controller
 
     public function list()
     {
+        // recuperer les 4 valeurs si présent sinon valeur par défaut, faire des where dans la requete sql 
+        //faire ça sous forme de restriction where, where AAA=  && ou * 
 
         // include 'app/model/JewelModel.php';
         $model = new JewelModel();
@@ -37,23 +39,25 @@ class JewelController extends Controller
     {
         $idJewel = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-        $dao = new Dao();
+        // $dao = new Dao();
+        $model = new JewelModel();
 
         try {
-        $jewels = $dao->getJeweldetailsById($idJewel);
+            // $jewels = $dao->getJeweldetailsById($idJewel);
+            $jewel = $model->detailsjewel($idJewel);
         } catch (Exception $e) {
             // Afficher le message d'erreur à l'utilisateur
             echo 'Une erreur s\'est produite: ' . $e->getMessage();
             // Enregistrer l'erreur dans le fichier de journal
             error_log('Une erreur s\'est produite: ' . $e->getMessage());
             return;
-        return;
+            return;
         }
         // $cart = new Cart();
         // $nbrJewel = $cart->nbrArticle();
 
         $view = 'jewel/detailsJewel';
-        $paramView = ['css' => 'detailsJewel', 'jewels' => $jewels];
+        $paramView = ['css' => 'detailsJewel', 'jewel' => $jewel];
         // on ajoute le tableau de bijou du modèle correspondant à ma list et aux coups de coeurs
         $this->createView($view, $paramView);
     }

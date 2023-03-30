@@ -306,21 +306,21 @@ class Dao
                 INNER JOIN size ON articles.id_size = size.id_size
                 WHERE articles.id_Article = :id';
 
-       
+
         $jewel_statement = $this->dbconnect->prepare($sql);
-        $jewel_statement->bindParam(':id',$id, PDO::PARAM_INT);
+        $jewel_statement->bindParam(':id', $id, PDO::PARAM_INT);
         // $jewel_statement->execute();
         $result = $jewel_statement->execute();
 
         if ($result && $jewel_statement->rowCount() > 0) {
-        
-        $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
-        // Cela crée un tableau $props à partir de la ligne récupérée en utilisant fetch(PDO::FETCH_ASSOC) et crée un nouvel objet Jewel en utilisant la méthode fromArray() que vous avez définie dans la classe Jewel.
-        
-        $jewel = Jewel::fromArray($jewel_statement->fetch(PDO::FETCH_ASSOC));
-        // $jewel = $jewel_statement->fetch();
-        // var_dump($jewel);
-        return $jewel;
+
+            $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+            // Cela crée un tableau $props à partir de la ligne récupérée en utilisant fetch(PDO::FETCH_ASSOC) et crée un nouvel objet Jewel en utilisant la méthode fromArray() que vous avez définie dans la classe Jewel.
+
+            // $jewel = Jewel::fromArray($jewel_statement->fetch(PDO::FETCH_ASSOC));
+            $jewel = $jewel_statement->fetch();
+            // var_dump($jewel);
+            return $jewel;
         } else {
             throw new Exception("Jewel not found.");
         }

@@ -76,9 +76,11 @@
         <div class="card">
           <figure>
             <!-- <img src="Assets/" alt="image article" /> -->
+
             <a id="linkdetails" href="index.php?entite=jewels&action=details&id=<?= $jewel->getId(); ?>">
               <img src="/App/Assets/<?= $jewel->getImage_name(); ?>" alt="image article" />
             </a>
+            
             <figcaption><?= $jewel->getTitle(); ?></figcaption>
           </figure>
           <p> <?= $jewel->getPrice(); ?> &euro;</p>

@@ -18,6 +18,14 @@ class JewelModel
         return $tabJewels;
     }
 
+    // Detailsproduit
+
+    public function detailsjewel($idJewel){
+        $dao = new Dao();
+        $jewel = $dao->getJeweldetailsById($idJewel);
+        return $jewel;
+    }
+
     // CARD HEART
     // on transmet la valeur de la limite comme argument
     public function listJewelsWithLimit($limit = 20)

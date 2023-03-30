@@ -10,9 +10,9 @@
 
     <div class="Containerdetails">
         <?php
-        var_dump($jewels);
+        // var_dump($jewel);
         // m'a permi de voir que tout mes attributs etait transforméé en int
-        foreach ($jewels as $jewel) {
+        
             echo '
           
             <img src="/App/Assets/' . $jewel->getImage_name() . '"class="imgArticle"/>
@@ -25,7 +25,7 @@
             <p>Taille: ' . $jewel->getNbrSize() . '</p>
             <a href="index.php?entite=jewels&action=addtocart&id=' . $jewel->getId() . '">Ajouter au panier</a>
             </div>';
-        }
+        
         ?>
     </div>
 

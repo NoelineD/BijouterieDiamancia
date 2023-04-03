@@ -45,6 +45,7 @@ class UserController extends Controller
             $this->createView('user/login', $paramView);
         }
     }
+    
     public function verif()
     {
         // vérification du formaulaire de login

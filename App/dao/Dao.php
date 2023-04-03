@@ -226,7 +226,7 @@ class Dao
             ':stock' => $jewel->getStock(),
             ':type' => $jewel->getType(),
             ':stone' => $jewel->getStone(),
-            ':metal' => $jewel->getMetal(),
+            ':metal' => $jewel->getMetal(), 
             ':size' => $jewel->getSize()
         ];
 

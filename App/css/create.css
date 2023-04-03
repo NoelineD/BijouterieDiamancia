@@ -29,7 +29,7 @@
       background: rgb(251, 249, 249);
       box-shadow: 0 30px 60px 0 rgba(252, 252, 252, 0.4);
       border-radius: 5px;
-      max-width: 380px;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
       padding-top: 5px;
@@ -105,28 +105,37 @@
         }
           }
 
-  @media (min-width:600px) {
+  @media (min-width:480px) and (max-width:767.9px) {
 
-    #video {
-        max-height: 900px;
+  
+  }
+  
+  @media (min-width:768px) and (max-width:1023.9px){
+
+  }
+
+  @media (min-width:1024px) {
+
+  #video {
+    max-height: 900px;
     }
 
-        .form {
+  .form {
            
-            max-width: 500px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-top: 5px solid #FEC7D4;
-            border-right: 5px solid #FEC7D4;
+    max-width: 500px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 5px solid #FEC7D4;
+    border-right: 5px solid #FEC7D4;
+    }
+
+  .pageTitle {
+    font-size: 1.5em;
+    width: 350px;
         }
 
-        .pageTitle {
-        font-size: 1.5em;
-        width: 350px;
-        }
-
-        .formEntry {
-        min-width: 350px;
-        padding: 15px;
+  .formEntry {
+    min-width: 350px;
+    padding: 15px;
         }
   }

@@ -80,25 +80,25 @@
             <a id="linkdetails" href="index.php?entite=jewels&action=details&id=<?= $jewel->getId(); ?>">
               <img src="/App/Assets/<?= $jewel->getImage_name(); ?>" alt="image article" />
             </a>
-            
+
             <figcaption><?= $jewel->getTitle(); ?></figcaption>
           </figure>
           <p> <?= $jewel->getPrice(); ?> &euro;</p>
 
 
-          <?php if ($_SESSION['role'] === 'CLIENT') : ?>
 
-            <!-- si la variable de session existe, que la variable de session est converti en tableau (unserialise) que le bijou actuel est present dans l'array
+          <ul>
+            <?php if ($_SESSION['role'] === 'CLIENT') : ?>
+
+              <!-- si la variable de session existe, que la variable de session est converti en tableau (unserialise) que le bijou actuel est present dans l'array
   alors on affiche coeur plein sinon on affiche plein car l'utilisateur a ajouté dans les -->
 
-            <?php if (isset($_SESSION['favoris']) && in_array($jewel, unserialize($_SESSION['favoris']))) : ?>
-              <a id="containerImgFavs" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId() ?>" class="btn-favorite"><img id="imgFavsFull" src="/Autres/coeurplein2 (2).png"></a>
-            <?php else : ?>
-              <a id="containerImgFavs" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId() ?>" class="btn-favorite"><img src="/Autres/coeurvide.png" id="imgFavsEmpty"></a>
-            <?php endif; ?>
+              <?php if (isset($_SESSION['favoris']) && in_array($jewel, unserialize($_SESSION['favoris']))) : ?>
+                <a id="containerImgFavs" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId() ?>" class="btn-favorite"><img id="imgFavsFull" src="/Autres/coeurplein2 (2).png"></a>
+              <?php else : ?>
+                <a id="containerImgFavs" href="index.php?entite=jewels&action=addtofavs&id=<?= $jewel->getId() ?>" class="btn-favorite"><img src="/Autres/coeurvide.png" id="imgFavsEmpty"></a>
+              <?php endif; ?>
 
-
-            <ul>
               <!-- si l'utilisateur est connecté -->
 
               <li>
@@ -113,12 +113,13 @@
             <!-- si l'utilisateur connecté est de rôle ADMIN -->
             <?php if ($_SESSION['role'] === 'ADMIN') : ?>
 
+
               <li>
                 <a href="index.php?entite=jewels&action=see&id=<?= $jewel->getId(); ?>">modifier</a>
               </li>
             <?php endif ?>
 
-            </ul>
+          </ul>
 
         </div>
         <br>

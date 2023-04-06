@@ -2,7 +2,7 @@
     <div class="mainContainer">
         <figure class="introFigure">
 
-            <figcaption class="introFigcaption">Votre article</figcaption>
+            <figcaption class="introFigcaption">Vos articles</figcaption>
             <img class="introImg" src="/Autres/collierAigue52.jpg" alt="introImg" style="width:100%">
 
         </figure>

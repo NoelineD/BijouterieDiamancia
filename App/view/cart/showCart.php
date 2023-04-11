@@ -1,11 +1,17 @@
 <main>
     <div class="mainContainer">
         <figure class="introFigure">
-
-            <figcaption class="introFigcaption">Vos articles</figcaption>
+            r
+            <figcaption class="introFigcaption">Votre Panier</figcaption>
             <img class="introImg" src="/Autres/collierAigue52.jpg" alt="introImg" style="width:100%">
 
         </figure>
+
+        <!-- A ENLEVER SI PANIER MARCHE -->
+
+        <?php if (isset($errorMessage)) : ?>
+            <p style="color: red"><?= $errorMessage ?></p>
+        <?php endif; ?>
 
         <table class="table">
             <tr class="">
@@ -31,7 +37,8 @@
             </td>
         </tr>';
             }
-            echo '<tr><td colspan="2" class="totalPrice">Prix Total:  ' . $prixHt . ' &euro;</td></tr>';
+            // on test la valeur du prixHT afin de pouvoir envoyer sur une page ou une autre et qu'on est pas cette page avec le panier à 0 mais une autre page
+            echo '<tr><td colspan="2" class="totalPrice">Prix Total:  ' .  (isset($prixHT) ? $prixHT : '') . ' &euro;</td></tr>';
             ?>
         </table>
 

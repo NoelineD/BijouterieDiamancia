@@ -273,6 +273,7 @@ class JewelController extends Controller
         $jewel = $dao->getJewelById($idJewel);
 
         $cart->add($jewel);
+        // var_dump($cart);
 
         header('Location:index.php?entite=jewels&action=list');
         exit();

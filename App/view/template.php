@@ -65,7 +65,12 @@
 
         <li class="iconsSpaceRight">
 
-          <a href="index.php?entite=cart&action=showcart">
+          <!-- j'ajoute une expression ternaire pour vérifier si le panier est vide Si c'est le cas, le lien renverra vers l'action emptycart. Sinon, il renverra vers l'action showcart. -->
+
+
+          <!-- <a href="index.php?entite=cart&action=<= !empty($itemCarts) ? 'showcart' : 'emptycart' ?>"> -->
+          <!-- <div> echo</div> -->
+          <a href="index.php?entite=cart&action=<?= empty($itemCarts) ? 'emptycart' : 'showcart' ?>">
             <i class="fa-solid fa-bag-shopping fa-xl" style="color:#3D535F"></i>
           </a>
 

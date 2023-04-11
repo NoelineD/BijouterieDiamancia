@@ -28,7 +28,7 @@
       <img class="roundImg" src="App/Assets/Pierres/Diamond.png" alt="roundimg">
       <div class="description">
         <h4>Le Diamant</h4>
-        <P>LOR EM IPSUUUUUUUUUU UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM</P>
+        <P>LOR EM IPSUM</P>
       </div>
     </div>
 

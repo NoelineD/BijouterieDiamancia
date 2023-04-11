@@ -16,7 +16,7 @@
 
       <h4>filtrer par:</h4>
 
-      <div class="flex">
+      <div class="div-flex">
         <div class="filterType">
           <select>
             <option value="">-- Pierre --</option>
@@ -102,12 +102,12 @@
               <!-- si l'utilisateur est connecté -->
 
               <li>
-                <a href="index.php?entite=jewels&action=addtocart&id=<?= $jewel->getId(); ?>">Ajouter</a>
+                <a class="pinkBtn" href="index.php?entite=jewels&action=addtocart&id=<?= $jewel->getId(); ?>">Ajouter</a>
               </li>
-
+              <!-- 
               <li>
                 <a href="index.php?entite=jewels&action=delete&id=<?= $jewel->getId(); ?>">Retirer</a>
-              </li>
+              </li> -->
             <?php endif ?>
 
             <!-- si l'utilisateur connecté est de rôle ADMIN -->
@@ -147,8 +147,8 @@
           <ul>
             <!-- si l'utilisateur est connecté -->
             <?php if ($_SESSION['role'] === 'CLIENT') : ?>
-              <li><a href="index.php?entite=jewels&action=addtocart&id=<?= $jewellimit->getId(); ?>">Ajouter</a></li>
-              <li><a href="index.php?entite=jewels&action=see&id=<?= $jewellimit->getId(); ?>">Retirer</a></li>
+              <li><a class="pinkBtn" href="index.php?entite=jewels&action=addtocart&id=<?= $jewellimit->getId(); ?>">Ajouter</a></li>
+              <!-- <li><a href="index.php?entite=jewels&action=see&id=<?= $jewellimit->getId(); ?>">Retirer</a></li> -->
             <?php endif ?>
 
             <!-- si l'utilisateur connecté est de rôle ADMIN -->

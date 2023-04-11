@@ -70,8 +70,9 @@
     display:flex;
     width: 100%;
     align-items: center;
-    border-top: 1px solid #c5bfbf;
-    border-bottom: 1px solid #c5bfbf;
+    justify-content:center;
+    /* border-top: 1px solid #c5bfbf;
+    border-bottom: 1px solid #c5bfbf; */
   }
 
   .description{
@@ -143,6 +144,7 @@
 
     .displayStone {
         height: 120px;
+        justify-content: center;
     }
 
     .description {
@@ -213,6 +215,8 @@
 
     .displayStone {
         height: 140px;
+        justify-content: center;
+       
     }
     
     .description {
@@ -285,6 +289,8 @@
     
     .displayStone {
         height: 185px;
+        /* width:80%; */
+        justify-content: center;
     }
     
     .description {

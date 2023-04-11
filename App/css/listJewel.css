@@ -15,12 +15,13 @@ width:100%;
     background-image: linear-gradient(to right, #FEBFD4 0%, #FFFF 51%, #FEBFD4 100%);
     padding: 10px 20px;
     margin-left:20px;
+    margin-bottom:20px;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     transition: 0.5s;
     background-size: 200% auto;
-    font-size: 0.8em;
+    font-size: 0.6em;
     border: transparent;
     color: #566A74;
     box-shadow: 10px 10px 10px #DBDBDD;
@@ -76,7 +77,7 @@ h4{
     margin:20px;
 }
 
-.flex{
+.div-flex{
     display:flex;
     width:100%;
     /* background-color: #D78884; */
@@ -135,7 +136,7 @@ h4{
 
     .heartContainer {
       display: flex;
-      background-color: rgb(248, 197, 214, 0.3);
+      /* background-color: rgb(248, 197, 214, 0.3); */
       /* width: 90%; */
       /* justify-content: center; */
       align-items: center;
@@ -207,12 +208,6 @@ h4{
       border-top: solid 1px #ece7e7;
   }
 
-  .card a, .cardHeart a {
-      background-color: #fff;
-      padding: 5px;
-      /* margin-right:5px; */
-      border: solid 2px #000;
-  }
 
   /* pour eviter que les border soit sur le link qui envoie à la page details */
   #linkdetails{
@@ -220,33 +215,18 @@ h4{
     background-color: #F3F3F3;
   }
 
-  .card ul li:first-child a,
-.cardHeart ul li:first-child a {
+  .pinkBtn {
+      background-color: #ffffff;
       border: solid 2px #f3aad5;
       color: #f3aad5;
+      padding: 5px;
   }
 
-  .card ul li:last-child a, 
-  .cardHeart ul li:last-child a {
-      border: solid 2px #3D535F;
-      color: #3D535F;
-  }
-
-  .card ul li:first-child a:hover,
-  .cardHeart ul li:first-child a:hover {
+  .pinkBtn:hover {
       background-color: #f3aad5;
-  }
-
-  .card ul li:last-child a:hover,
-  .cardHeart ul li:last-child a:hover {
-      background-color: #3D535F;
-  }
-
-  .card ul li a:hover, 
-  .cardHeart ul li a:hover{
-      color: #fff;
-      transition: 1s;
-      cursor: pointer;
+        color: #fff;
+        transition: 1s;
+        cursor: pointer;
   }
 
   #videoJewel{
@@ -282,11 +262,6 @@ h4{
         top: 10%;
         left: 2%;
     } */
-
-    .heartContainer {
-        height: 350px;
-        padding: 10px;
-    }
     
     .card{
         max-width: 34%;
@@ -299,6 +274,11 @@ h4{
         flex-shrink: 0;
     }
     
+    .heartContainer {
+         height: 350px;
+        padding: 10px;
+    }
+
     .cardHeart img {
         width: 80%;
         height: auto;
@@ -353,10 +333,11 @@ h4{
     
     select{
         margin-bottom:20px;
+        margin-left: 25px;
         width:100px;
         height:20px;
         border-radius:5px;
-        background-color: #f4e2e8;
+        background-color: #ece9e9;
     }
 
     h4{
@@ -365,9 +346,9 @@ h4{
         
     }
 
-    .flex{
+    .div-flex{
         display:block;
-        margin-left:25px;
+      
     }
 
     option{
@@ -377,7 +358,6 @@ h4{
     /************** container droite ***********/
     .articlesContainer {
         /* background-color: aqua; */
-        width: 80%;
         margin-top: 20px;
       }
 
@@ -456,6 +436,7 @@ h4{
 
     select {
         margin-bottom: 20px;
+        margin-left: 50px;
         width: 100px;
         height: 20px;
         border-radius: 5px;
@@ -464,23 +445,23 @@ h4{
 
     h4 {
         margin-bottom: 40px;
-        margin-left: 25px;
+        margin-left: 50px;
 
     }
 
-    .flex {
+    .div-flex {
         display: block;
-        margin-left: 25px;
+        margin-left: 50px;
     }
 
     option {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     /************** container droite ***********/
     .articlesContainer {
         /* background-color: aqua; */
-        width: 80%;
+        width: 90%;
         margin-top: 20px;
     }
 

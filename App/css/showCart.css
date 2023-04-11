@@ -1,3 +1,4 @@
+/***************** Show Cart *********************/
 .main{
     min-height: 1700px;
 }
@@ -59,6 +60,41 @@ padding-left: 5.5px;
 .totalPrice{
     font-weight: bold;
 }
+
+/***************** Ajout Empty Cart *********************/
+
+.mainemptycart{
+    width:100%;
+    text-align: center;
+}
+
+
+.pinkbtn {
+    border: solid 2px #3D535F;
+    border-radius: 5px;
+    color: #3D535F;
+    padding:5px;
+    margin:10px;
+
+}
+
+ .pinkbtn:hover {
+    background-color: #3D535F;
+    color: #fff;
+    transition: 1s;
+    cursor: pointer;
+    
+ }
+
+/* margin enfant du mainempty */
+
+ .mainemptycart p{
+     margin-bottom: 30px;
+ }
+
+ .mainemptycart ul > * {
+     margin-bottom: 30px;
+ }
 
 @media (min-width:480px) and (max-width:767.9px) {
 

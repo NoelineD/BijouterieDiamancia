@@ -3,7 +3,7 @@
     <figure class="introFigure">
 
         <figcaption class="introFigcaption">Nos boucles</figcaption>
-        <img class="introImg" src="/Autres/" alt="introImg">
+        <img class="introImg" src="/Autres/bannerboucle.jpg" alt="introImg">
 
     </figure>
 

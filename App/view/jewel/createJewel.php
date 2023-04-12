@@ -6,14 +6,14 @@
         <div>
             <form id="formContainer" method="post" action="index.php?entite=jewels&action=createjewel" enctype="multipart/form-data">
                 <fieldset>
-                    <legend><strong><em>Fiche produit</em></strong></legend>
+                    <legend><strong><em>Nouveau Produit</em></strong></legend>
 
                     <?php if ($error) : ?>
                         <div style="background-color:brown;"><?= $error ?></div>
                     <?php endif ?>
 
                     <div class="line">
-                        <label for="id_title">Titre de l'article' : * </label>
+                        <label for="id_title">Titre de l'article : * </label>
                         <input type="text" name="title" id="id_title" required autofocus>
                     </div>
 
@@ -59,7 +59,7 @@
 
                     <div class="line">
                         <label for="id_size">Taille : * </label>
-                        <input type="text" name="id_Size" id="id_size">
+                        <input type="text" name="id_Size" id="id_size" required>
                     </div>
 
                     <br>

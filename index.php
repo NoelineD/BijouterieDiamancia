@@ -46,7 +46,7 @@ $jwt = new JWT();
 //60 nombre de seconde de validité du token à la fin
 $token = $jwt ->generate ($header, $payload, SECRET,60);
 
-echo $token;
+// echo $token;
 
 // Stocker le token dans la variable de session
 // $_SESSION['token'] = $token;

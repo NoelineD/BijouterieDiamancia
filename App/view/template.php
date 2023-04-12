@@ -70,7 +70,8 @@
 
           <!-- <a href="index.php?entite=cart&action=<= !empty($itemCarts) ? 'showcart' : 'emptycart' ?>"> -->
           <!-- <div> echo</div> -->
-          <a href="index.php?entite=cart&action=<?= empty($itemCarts) ? 'emptycart' : 'showcart' ?>">
+
+          <a href="index.php?entite=cart&action=showcart">
             <i class="fa-solid fa-bag-shopping fa-xl" style="color:#3D535F"></i>
           </a>
 

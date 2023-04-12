@@ -38,8 +38,9 @@
         </tr>';
             }
             // on test la valeur du prixHT afin de pouvoir envoyer sur une page ou une autre et qu'on est pas cette page avec le panier à 0 mais une autre page
-            echo '<tr><td colspan="2" class="totalPrice">Prix Total:  ' .  (isset($prixHT) ? $prixHT : '') . ' &euro;</td></tr>';
+            echo '<tr><td colspan="2" class="totalPrice">Prix Total:  ' . $prixHt . ' &euro;</td></tr>';
             ?>
+
         </table>
 
     </div>

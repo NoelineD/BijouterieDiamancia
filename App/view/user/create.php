@@ -29,6 +29,7 @@
             <!-- <label for="id_tel">Votre numéro de téléphone: </label> -->
             <input class="inputHeight formEntry" type="text" id="id_tel" name="tel" placeholder="votre numéro de téléphone">
 
+            <input type="hidden" name="token" value="<?php echo $token; ?>">
 
             <button class="submit formEntry">Envoyer</button>
         </form>

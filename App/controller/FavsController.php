@@ -17,8 +17,19 @@ class FavsController extends Controller
 
         $jewels = $favs -> getItemFavs();
 
-        $view = 'favs/showFavs';
-        $paramView = ['jewels' => $jewels,  'css' => 'showCart'];
+
+        if (empty($itemFavs)) {
+
+            $view = 'favs/emptyFavs';
+            $paramView = ['css' => 'showCart'];
+        } else {
+            $view = 'favs/showFavs';
+            $paramView = ['jewels' => $jewels, 'css' => 'showCart'];
+        }
+
+
+        // $view = 'favs/showFavs';
+        // $paramView = ['jewels' => $jewels,  'css' => 'showCart'];
         $this->createView($view, $paramView);
     }
 

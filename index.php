@@ -14,9 +14,52 @@ use Diamancia\App\controller\FavsController;
 //     $_SESSION['cart'] = [];
 // }
 
+
+
+// Générer un token aléatoire
+// $token = bin2hex(random_bytes(32));
+
 session_start();
 
-// voir avec mr bonneau sans spl autoload normalement avec composer? et partie 
+// ON CREE LE HEADER
+
+require_once 'config.php';
+require_once 'JWT.php';
+$header = [
+    'typ' => 'JWT',
+    'alg' => 'HS256'
+    // HACHAGE PAR DEFAUT HS256
+];
+
+// on crée le contenu (payload)
+$payload = [
+    'user_id' => 123,
+    'roles' =>[
+        'ROLE_ADMIN',
+        'ROLE_USER'
+    ],
+    'email' => 'contact@demo.fr'
+    ];
+
+$jwt = new JWT();
+
+//60 nombre de seconde de validité du token à la fin
+$token = $jwt ->generate ($header, $payload, SECRET,60);
+
+echo $token;
+
+// Stocker le token dans la variable de session
+// $_SESSION['token'] = $token;
+
+// // Vérifier si le token est valide lors de la soumission du formulaire
+// if (isset($_POST['submit'])) {
+//     if (!empty($_POST['token']) && hash_equals($_SESSION['token'], $_POST['token'])) {
+//         // Le token est valide, traiter la soumission du formulaire
+//     } else {
+//         // Le token est invalide, afficher un message d'erreur ou rediriger vers une page d'erreur
+//     }
+// }
+
 
 if (!isset($_SESSION['role'])) {
     $_SESSION['role'] = 'ROLE_VISITEUR';

@@ -9,16 +9,16 @@
 
     <main class="mainContainer">
 
-        <div class="filterContainer">
+        <div class="flexContainer">
 
             <button class="btnImg" type="button">accueil</button>
             <!-- AJOUT DE LA DIV FILTER POUR TENTER DE FAIRE LE FILTRAGE -->
             <!-- <div class="filter"> -->
             <h4>filtrer par:</h4>
 
-            <div class="flex">
+            <div class="div-flex">
                 <div class="filterType">
-                    <select id="filterStone">
+                    <select>
                         <option value="">-- Pierre --</option>
                         <option value="diamant">Diamant</option>
                         <option value="emeraude">Emeraude</option>
@@ -34,16 +34,15 @@
                 </div>
 
                 <div class="filterType">
-                    <select id="filterMetal">
+                    <select>
                         <option value="">-- metal --</option>
-                        <option value="or">Or</option>
-                        <option value="orblanc">Or Blanc</option>
-                        <option value="orrose">Or Rose</option>
+                        <option>or</option>
+                        <option>argent</option>
                     </select>
                 </div>
 
                 <div class="filterType">
-                    <select id="filterColor">
+                    <select>
                         <option value="">-- couleur --</option>
                         <option>vert</option>
                         <option>blanc</option>
@@ -59,7 +58,7 @@
                 </div>
 
                 <div class="filterType">
-                    <select id="filterPrice">
+                    <select>
                         <option value="">-- Prix --</option>
                         <option>De 100 à 200€</option>
                         <option>De 200 à 300€ </option>
@@ -70,6 +69,7 @@
             </div>
 
         </div>
+
 
 
         <div class="articlesContainer">

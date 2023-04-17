@@ -28,7 +28,7 @@
 
           <ul>
               <li>
-                  <a class="pinkbtn" href="index.php?entite=jewels&action=list">Retour aux articles</a>
+                  <a class="pinkbtn" href="index.php?entite=jewels&action=list">style bouton 3</a>
               </li>
           </ul>
 

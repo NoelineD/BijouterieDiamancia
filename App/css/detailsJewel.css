@@ -9,7 +9,7 @@ margin:40px;
 
 .btnPurple {
     border: solid 2px #A68590;
-    color: #A68590;
+    color: rgb(166, 133, 144);
     padding: 5px;
     text-decoration: none;
     /* margin:30px; */
@@ -112,7 +112,7 @@ margin:40px;
 }
 
 .containerP {
-    border: inset 5px #FAC8D9;
+    border: inset 5px rgb(250, 200, 217);
     padding: 15px;
 }
 }

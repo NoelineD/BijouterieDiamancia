@@ -3,7 +3,7 @@
         <figure class="introFigure">
 
             <figcaption class="introFigcaption">Votre Panier</figcaption>
-            <img class="introImg" src="/Autres/collierAigue52.jpg" alt="introImg" style="width:100%">
+            <img class="introImg" src="/Autres/panierban.jpg" alt="introImg" style="width:100%">
 
         </figure>
 

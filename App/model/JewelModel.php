@@ -43,12 +43,7 @@ class JewelModel
         return $jewel;
     }
 
-    public function deleteJewel(int $id)
-    {
-        $dao = new Dao();
-        $dao->deleteJewelById($id);
-    }
-
+   
     // CARDS Dans listRing
 
     public function listRing()
@@ -158,4 +153,11 @@ class JewelModel
         $dao = new Dao();
         $dao->updateJewel($jewel, $id);
     }
+
+    public function deleteJewel(int $id)
+    {
+        $dao = new Dao();
+        $dao->deleteJewelById($id);
+    }
+
 }

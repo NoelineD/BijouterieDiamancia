@@ -7,7 +7,7 @@
 
   </figure>
 
-  <section class="mainContainer">
+  <section class="flexContainer">
 
     <div class="filterContainer">
 
@@ -115,7 +115,7 @@
 
 
               <li>
-                <a href="index.php?entite=jewels&action=see&id=<?= $jewel->getId(); ?>">modifier</a>
+                <a class="pinkBtn" href="index.php?entite=jewels&action=see&id=<?= $jewel->getId(); ?>">modifier</a>
               </li>
             <?php endif ?>
 

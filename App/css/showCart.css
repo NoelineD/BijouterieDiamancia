@@ -199,7 +199,7 @@ padding-left: 5.5px;
 
 @media (min-width:1024px) {
 .introFigure {
-        margin-bottom: 140px;
+        margin-bottom: 180px;
     }
 
     .introFigcaption {
@@ -209,7 +209,7 @@ padding-left: 5.5px;
     }
 
     .introImg {
-        max-height: 470px;
+        max-height: 520px;
         width: auto;
     }
 

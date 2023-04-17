@@ -10,10 +10,6 @@ use Diamancia\App\controller\JewelController;
 use Diamancia\App\controller\CartController;
 use Diamancia\App\controller\FavsController;
 
-// if (!isset($_SESSION['cart'])) {
-//     $_SESSION['cart'] = [];
-// }
-
 
 
 // Générer un token aléatoire

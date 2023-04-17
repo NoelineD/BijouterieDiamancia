@@ -1,11 +1,5 @@
-  main{
-    /* background-color: aqua; */
-    display:block;
-    height:900px;
-    width:100%;
-  }
 
- #blocVideo {
+#blocVideo {
     position: relative;
     max-height: 850px;
     width: 100%;
@@ -13,7 +7,7 @@
     
  #video {
     object-fit:cover;
-    height: 900px;
+    height: 850px;
     width: 100%;
 }
 
@@ -29,7 +23,7 @@
       background: rgb(251, 249, 249);
       box-shadow: 0 30px 60px 0 rgba(252, 252, 252, 0.4);
       border-radius: 5px;
-      max-width: 700px;
+      width: 400px;
       margin-left: auto;
       margin-right: auto;
       padding-top: 5px;
@@ -84,7 +78,7 @@
      cursor:pointer;
      width: 200px;
      color: white;
-     background-color: #FEC7D4;
+     background-color: rgb(254, 199, 212);
      font-size: 20px;
     }
 
@@ -105,15 +99,31 @@
         }
           }
 
-  @media (min-width:480px) and (max-width:767.9px) {
+  
+  
+  /********************  tab  ********************/
 
-  
-  }
-  
   @media (min-width:768px) and (max-width:1023.9px){
-
+  #video {
+      height: 900px;
+    }
+  
+    .form {
+  
+      width: 500px;
+    }
+  
+    .pageTitle {
+      font-size: 1.4em;
+    
+    }
+  
+    .formEntry{
+      padding: 15px;
+    }
   }
 
+  /*******************  Desktop ******************/
   @media (min-width:1024px) {
 
   #video {
@@ -122,20 +132,17 @@
 
   .form {
            
-    max-width: 500px;
+    width: 520px;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-top: 5px solid #FEC7D4;
-    border-right: 5px solid #FEC7D4;
     }
 
   .pageTitle {
     font-size: 1.5em;
-    width: 350px;
+    
         }
 
   .formEntry {
-    min-width: 350px;
     padding: 15px;
         }
   }

@@ -12,7 +12,7 @@
 
   .btnImg {
       position: absolute;
-      background-image: linear-gradient(to right, #D78884 0%, #FFFF 51%, #D78884 100%);
+      background-image: linear-gradient(to right, rgb(215, 136, 132) 0%, #FFFF 51%, #D78884 100%);
       padding: 15px 10px;
       text-align: center;
       text-transform: uppercase;

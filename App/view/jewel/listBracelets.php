@@ -7,18 +7,18 @@
 
     </figure>
 
-    <main class="mainContainer">
+    <main class="flexContainer">
 
         <div class="filterContainer">
 
-            <button class="btnImg" type="button">accueil</button>
+            <button class="btnImg" type="button">Accueil</button>
             <!-- AJOUT DE LA DIV FILTER POUR TENTER DE FAIRE LE FILTRAGE -->
             <!-- <div class="filter"> -->
             <h4>filtrer par:</h4>
 
-            <div class="flex">
+            <div class="div-flex">
                 <div class="filterType">
-                    <select id="filterStone">
+                    <select>
                         <option value="">-- Pierre --</option>
                         <option value="diamant">Diamant</option>
                         <option value="emeraude">Emeraude</option>
@@ -34,16 +34,15 @@
                 </div>
 
                 <div class="filterType">
-                    <select id="filterMetal">
+                    <select>
                         <option value="">-- metal --</option>
-                        <option value="or">Or</option>
-                        <option value="orblanc">Or Blanc</option>
-                        <option value="orrose">Or Rose</option>
+                        <option>or</option>
+                        <option>argent</option>
                     </select>
                 </div>
 
                 <div class="filterType">
-                    <select id="filterColor">
+                    <select>
                         <option value="">-- couleur --</option>
                         <option>vert</option>
                         <option>blanc</option>
@@ -59,7 +58,7 @@
                 </div>
 
                 <div class="filterType">
-                    <select id="filterPrice">
+                    <select>
                         <option value="">-- Prix --</option>
                         <option>De 100 à 200€</option>
                         <option>De 200 à 300€ </option>
@@ -70,6 +69,7 @@
             </div>
 
         </div>
+
 
 
         <div class="articlesContainer">
@@ -87,20 +87,16 @@
                         <?php if ($_SESSION['role'] === 'CLIENT') : ?>
                             <li>
                                 <!-- VOIR SI METTRE JEWEL OU RING ICI LOGIQUEMENT RING CAR TABLEAU EN QUESTION-->
-                                <a href="index.php?entite=jewels&action=addtocart&id=<?= $bracelet->getId(); ?>">Ajouter</a>
+                                <a class="pinkBtn" href="index.php?entite=jewels&action=addtocart&id=<?= $bracelet->getId(); ?>">Ajouter</a>
                             </li>
-                            <!-- a faire Admin -->
-                            <!-- si l'utilisateur connecté est de rôle ADMIN -->
-                            <li>
-                                <a href="index.php?entite=jewels&action=delete&id=<?= $bracelet->getId(); ?>">Retirer</a>
-                            </li>
+
                         <?php endif ?>
 
                         <!-- si l'utilisateur connecté est de rôle ADMIN -->
                         <?php if ($_SESSION['role'] === 'ADMIN') : ?>
 
                             <li>
-                                <a href="index.php?entite=jewels&action=see&id=<?= $bracelet->getId(); ?>">modifier</a>
+                                <a class="pinkBtn" href="index.php?entite=jewels&action=see&id=<?= $bracelet->getId(); ?>">modifier</a>
                             </li>
                         <?php endif ?>
 

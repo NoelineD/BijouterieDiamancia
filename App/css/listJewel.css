@@ -2,12 +2,6 @@
 width:100%;
 }
 
-.mainContainer {
-  /* display:flex;
-  flex-direction: column; */
-  width: 100%;
-  margin-bottom:20px;
-  }
 
 /***************** Filter *****************/
 .btnImg {
@@ -21,7 +15,7 @@ width:100%;
     font-weight: bold;
     transition: 0.5s;
     background-size: 200% auto;
-    font-size: 0.6em;
+    font-size: 0.7em;
     border: transparent;
     color: #566A74;
     box-shadow: 10px 10px 10px #DBDBDD;
@@ -35,11 +29,18 @@ width:100%;
     color: #566A74;
 }
 
+.flexContainer {
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .filterContainer {
     width: 100%;
     height: 150px;
     
   }
+
 
 .introImg {
     object-fit:cover;
@@ -64,25 +65,7 @@ width:100%;
 
 /* Page Collier intro */
 
-.introFigPink {
-    position: absolute;
-    background-color: rgba(254, 178, 210, 0.4);
-    top: 15%;
-    width: 27%;
-    left: 5%;
-    font-size: 1.2em;
-}
 
-h4{
-    margin:20px;
-}
-
-.div-flex{
-    display:flex;
-    width:100%;
-    /* background-color: #D78884; */
-    justify-content: space-evenly;
-}
 
 /***************** Articles *****************/
 
@@ -319,25 +302,29 @@ h4{
     left: 1%;
    }
 
-    .mainContainer{
+    .flexContainer{
         display: flex;
         flex-direction:row;
     }
 
     /************** container gauche ***********/
     .filterContainer {
-       width: 20%;
-       margin-top:20px;
-       font-size:1.5em;
+        width: 20%;
+        margin-top:20px;
+        font-size:1.5em;
       }
-    
+
+    h4 {
+        margin-bottom: 40px;
+        margin-left: 25px;
+
+}
     select{
         margin-bottom:20px;
         margin-left: 25px;
         width:100px;
         height:20px;
         border-radius:5px;
-        background-color: #ece9e9;
     }
 
     h4{
@@ -422,7 +409,7 @@ h4{
         left: 1%;
     }
 
-    .mainContainer {
+    .flexContainer{
         display: flex;
         flex-direction: row;
     }
@@ -433,17 +420,8 @@ h4{
         margin-top: 20px;
         font-size: 1.5em;
     }
-
-    select {
-        margin-bottom: 20px;
-        margin-left: 50px;
-        width: 100px;
-        height: 20px;
-        border-radius: 5px;
-        background-color: #f4e2e8;
-    }
-
-    h4 {
+    
+     h4 {
         margin-bottom: 40px;
         margin-left: 50px;
 
@@ -453,6 +431,16 @@ h4{
         display: block;
         margin-left: 50px;
     }
+
+    select {
+        margin-bottom: 20px;
+        margin-left: 10px;
+        width: 100px;
+        height: 20px;
+        border-radius: 5px;
+        /* background-color: #ece9e9; */
+    }
+
 
     option {
         margin-bottom: 40px;

@@ -1,2 +1,2 @@
 <?php 
-const SECRET = 'OhLa83lleBroue11e!';
+const SECRET = 'OhLa83lleBijout3rie!';

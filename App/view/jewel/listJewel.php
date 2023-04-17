@@ -16,55 +16,70 @@
 
       <h4>filtrer par:</h4>
 
+
       <div class="div-flex">
         <div class="filterType">
-          <select>
-            <option value="">-- Pierre --</option>
-            <option value="diamant">Diamant</option>
-            <option value="emeraude">Emeraude</option>
-            <option value="aiguemarine">Aigue Marine</option>
-            <option value="amethyste">Amethyste</option>
-            <option value="opale">Opale</option>
-            <option value="quartzrose">Quartz Rose</option>
-            <option value="rubis">Rubis</option>
-            <option value="saphir">Saphir</option>
-            <option value="topaze">Topaze</option>
-            <option value="tourmaline">Tourmaline</option>
-          </select>
+          <form method="POST" action="">
+            <select id="stone-select" name="stone">
+              <option value="all">-- Pierre --</option>
+              <option value="1">Diamant</option>
+              <option value="2">Emeraude</option>
+              <option value="3">Aigue Marine</option>
+              <option value="4">Amethyste</option>
+              <option value="5">Opale</option>
+              <option value="6">Quartz Rose</option>
+              <option value="7">Rubis</option>
+              <option value="8">Saphir</option>
+              <option value="9">Topaze</option>
+              <option value="10">Tourmaline</option>
+            </select>
+            <button type="submit">Filtrer</button>
+          </form>
+        </div>
+
+
+        <div class="filterType">
+          <form method="POST" action="">
+            <select id="metal-select" name="metal">
+              <option value="all">-- metal --</option>
+              <option value="1">Or</option>
+              <option value="2">Or Blanc</option>
+              <option value="3">Or Rose</option>
+
+            </select>
+            <button type="submit">Filtrer</button>
+          </form>
         </div>
 
         <div class="filterType">
-          <select>
-            <option value="">-- metal --</option>
-            <option>or</option>
-            <option>argent</option>
-          </select>
+          <form method="POST" action="">
+            <select id="color-select" name="color">
+              <option value="">-- couleur --</option>
+              <option value="vert">vert</option>
+              <option value="blanc">blanc</option>
+              <option value="Gris">gris</option>
+              <option value="rose">rose</option>
+              <option value="bleuclaire">bleu claire</option>
+              <option value="bleu">bleu foncé</option>
+              <option value="violet">violet</option>
+              <option value="rouge">rouge</option>
+              <option value="multicolor">multicolor</option>
+            </select>
+            <button type="submit">Filtrer</button>
+          </form>
         </div>
 
         <div class="filterType">
-          <select>
-            <option value="">-- couleur --</option>
-            <option>vert</option>
-            <option>blanc</option>
-            <option>gris</option>
-            <option>jaune</option>
-            <option>rose</option>
-            <option>bleu claire</option>
-            <option>bleu foncé</option>
-            <option>violet</option>
-            <option>rouge</option>
-            <option>multicolors</option>
-          </select>
-        </div>
-
-        <div class="filterType">
-          <select>
-            <option value="">-- Prix --</option>
-            <option>De 100 à 200€</option>
-            <option>De 200 à 300€ </option>
-            <option>De 400 à 500€ </option>
-            <option>De 500 à 600€ </option>
-          </select>
+          <form method="POST" action="">
+            <select id="price-select" name="price" ,>
+              <option value="">-- Prix --</option>
+              <option value="100-200">De 100 à 200€</option>
+              <option value="200-300">De 200 à 300€ </option>
+              <option value="300-400">De 300 à 400€ </option>
+              <option value="400-500">De 400 à 1000€ </option>
+            </select>
+            <button type="submit">Filtrer</button>
+          </form>
         </div>
       </div>
 
@@ -166,6 +181,8 @@
   </div>
 </div>
 <script>
+  //**********************************/ Favoris *************************************//
+
   // on utilise jQuery pour ajouter un comportement de favori interactif sur un btn
   //when ready quand le doc est pret a etre manipulé donc clic le code est éxécuté
   $(document).ready(function() {
@@ -206,6 +223,24 @@
           // cas opposé on enleve la class, on cache le coeur plein et on remet le coeur vide car plus present dans favvs
         }
       });
+    });
+  });
+
+  //**********************************/ Filtres *************************************//
+
+
+  const stoneSelect = document.querySelector('#stone-select');
+  stoneSelect.addEventListener('change', () => {
+    const selectedStone = stoneSelect.value;
+    let filteredJewels = tabJewels;
+    if (selectedStone !== 'all') {
+      filteredJewels = tabJewels.filter(jewel => jewel.id_stone === selectedStone);
+    }
+    const articlesContainer = document.querySelector('.articlesContainer');
+    articlesContainer.innerHTML = '';
+    filteredJewels.forEach(jewel => {
+      // Créer la carte pour chaque bijou ici
+      // ...
     });
   });
 </script>

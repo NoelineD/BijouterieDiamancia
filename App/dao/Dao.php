@@ -75,12 +75,13 @@ class Dao
 
     //*********************************** Parie Jewel ***************************************//
 
-    // ListJewel récupère tout les bijoux Cards
 
-    public function getAllJewels(): array
+    // ListRing récupère toutes les bagues Cards
+
+    public function getAllRings(): array
     {
 
-        $sql = 'SELECT * FROM articles ORDER BY RAND()';
+        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 2 ORDER BY RAND()';
         $jewel_statement = $this->dbconnect->query($sql);
         $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
         //Fetch props late= si utilisé avec fetch class le constructeur de la classe appelé avant que les propriétés ne soit assignées à partir des valeurs de colonnes respectives
@@ -89,12 +90,66 @@ class Dao
         return $jewels;
     }
 
-    // ListRing récupère toutes les bagues Cards
 
-    public function getAllRings(): array
+    //*******************************/ pour les filtres **************************************/
+
+    // par pierre
+
+    public function getJewelsByStone($stoneId)
+    {
+        // Ajout de :stoneId = "all" car une fois le filtrage effectuer si on remettait sur all pierre ça rendait vide, maintenant ca renvoit la liste de base.
+        $sql = 'SELECT * FROM `articles` WHERE  (`id_stone` = :stoneId OR :stoneId = "all") ORDER BY RAND()';
+        $statement = $this->dbconnect->prepare($sql);
+        $statement->bindValue(':stoneId', $stoneId, PDO::PARAM_INT);
+        $statement->execute();
+        $jewels = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        return $jewels;
+    }
+
+    
+    // par couleur
+
+    public function getJewelsByColor($color)
+    {
+        $sql = 'SELECT * FROM `articles` WHERE `color` = :color ORDER BY RAND()';
+        $statement = $this->dbconnect->prepare($sql);
+        $statement->bindValue(':color', $color, PDO::PARAM_STR);
+        $statement->execute();
+        $jewels = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        return $jewels;
+    }
+
+
+    // par metal
+
+    public function getJewelsByMetal($metalId)
+    {
+        $sql = 'SELECT * FROM `articles` WHERE `id_metal` = :metalId ORDER BY RAND()';
+        $statement = $this->dbconnect->prepare($sql);
+        $statement->bindValue(':metalId', $metalId, PDO::PARAM_INT);
+        $statement->execute();
+        $jewels = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        return $jewels;
+    }
+
+     // par prix
+    public function getJewelsByPriceRange($minPrice, $maxPrice)
+    {
+        $sql = 'SELECT * FROM `articles` WHERE `price` BETWEEN :minPrice AND :maxPrice ORDER BY RAND()';
+        $statement = $this->dbconnect->prepare($sql);
+        $statement->bindValue(':minPrice', $minPrice, PDO::PARAM_INT);
+        $statement->bindValue(':maxPrice', $maxPrice, PDO::PARAM_INT);
+        $statement->execute();
+        $jewels = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+        return $jewels;
+    }
+
+    // ListJewel récupère tout les bijoux Cards
+
+    public function getAllJewels(): array
     {
 
-        $sql = 'SELECT * FROM `articles` WHERE `id_type` = 2 ORDER BY RAND()';
+        $sql = 'SELECT * FROM articles ORDER BY RAND()';
         $jewel_statement = $this->dbconnect->query($sql);
         $jewel_statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
         //Fetch props late= si utilisé avec fetch class le constructeur de la classe appelé avant que les propriétés ne soit assignées à partir des valeurs de colonnes respectives

@@ -18,6 +18,46 @@ class JewelModel
         return $tabJewels;
     }
 
+      // Filtres
+
+    public function listJewelsByStone($stoneId)
+    {
+        $dao = new Dao();
+        $jewels = $dao->getJewelsByStone($stoneId);
+        // var_dump($_GET,$stoneId);
+        return $jewels;
+    }
+
+    public function listJewelsByColor($color)
+    {
+        $dao = new Dao();
+        $jewels = $dao->getJewelsByColor($color);
+        // var_dump($_GET,$stoneId);
+        return $jewels;
+    }
+
+    public function listJewelsByMetal($MetalId)
+    {
+        $dao = new Dao();
+        $jewels = $dao->getJewelsByMetal($MetalId);
+        // var_dump($_GET,$stoneId);
+        return $jewels;
+    }
+
+    public function listJewelsByPrice($minPrice, $maxPrice)
+    {
+        $dao = new Dao();
+        $jewels = $dao->getJewelsByPriceRange($minPrice, $maxPrice);
+        // var_dump($_GET,$stoneId);
+        return $jewels;
+    }
+
+    public function seeJewels(int $id)
+    {
+        $dao = new Dao();
+        $jewel = $dao->getJewelById($id);
+        return $jewel;
+    }
     // Detailsproduit
 
     public function detailsjewel($idJewel){
@@ -36,14 +76,7 @@ class JewelModel
         return $tabJewelsLimit;
     }
 
-    public function seeJewels(int $id)
-    {
-        $dao = new Dao();
-        $jewel = $dao->getJewelById($id);
-        return $jewel;
-    }
-
-   
+  
     // CARDS Dans listRing
 
     public function listRing()

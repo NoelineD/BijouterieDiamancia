@@ -18,12 +18,51 @@ class JewelController extends Controller
 
     public function list()
     {
-        // recuperer les 4 valeurs si présent sinon valeur par défaut, faire des where dans la requete sql 
-        //faire ça sous forme de restriction where, where AAA=  && ou * 
 
         // include 'app/model/JewelModel.php';
         $model = new JewelModel();
-        $tabJewels = $model->listJewel();
+        $tabJewels = [];
+
+         // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['stone'])) {
+        //     $stoneId = intval($_POST['stone']);
+        //     // var_dump($_GET['stone']);
+        //     $tabJewels = $model->listJewelsByStone($stoneId);
+        //     // var_dump($_GET['stone']);
+        // } else {
+        //     $tabJewels = $model->listJewel();
+        // }   First method avec un seul filtre
+
+        // Filtre par pierre
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['stone'])) {
+            $stoneId = intval($_POST['stone']);
+            $tabJewels = $model->listJewelsByStone($stoneId);
+        }
+
+        // Filtre par couleur
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['color'])) {
+            $color = $_POST['color'];
+            $tabJewels = $model->listJewelsByColor($color);
+        }
+
+        // Filtre par métal
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metal'])
+        ) {
+            $metalId = intval($_POST['metal']);
+            $tabJewels = $model->listJewelsByMetal($metalId);
+        }
+
+        // Filtre par prix
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['min_price']) && isset($_POST['max_price'])
+        ) {
+            $minPrice = intval($_POST['min_price']);
+            $maxPrice = intval($_POST['max_price']);
+            $tabJewels = $model->listJewelsByPrice($minPrice, $maxPrice);
+        }
+
+        if (empty($tabJewels)) {
+            $tabJewels = $model->listJewel();
+        }
+       
         $tabJewelsLimit = $model->listJewelsWithLimit(20);
         // var_dump($tabJewelsLimit); 
         // affiche le contenu de la variable dans le nav

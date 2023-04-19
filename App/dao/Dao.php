@@ -132,18 +132,38 @@ class Dao
         return $jewels;
     }
 
-     // par prix
-    public function getJewelsByPriceRange($minPrice, $maxPrice)
+    // par prix
+    //   public function getJewelsByPriceRange($minPrice, $maxPrice)
+    // {
+    //     $sql = 'SELECT * FROM `articles` WHERE `price` >= :minPrice AND `price` <= :maxPrice';
+    //     $statement = $this->dbconnect->prepare($sql);
+    //     $statement->bindValue(':minPrice', $minPrice, PDO::PARAM_INT);
+    //     $statement->bindValue(':maxPrice', $maxPrice, PDO::PARAM_INT);
+    //     $statement->execute();
+    //     $jewels = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
+    //     return $jewels;
+    // }
+
+    public function getJewelsByPriceRange()
     {
-        $sql = 'SELECT * FROM `articles` WHERE `price` BETWEEN :minPrice AND :maxPrice ORDER BY RAND()';
+        $sql = 'SELECT * FROM `articles`';
         $statement = $this->dbconnect->prepare($sql);
-        $statement->bindValue(':minPrice', $minPrice, PDO::PARAM_INT);
-        $statement->bindValue(':maxPrice', $maxPrice, PDO::PARAM_INT);
         $statement->execute();
         $jewels = $statement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Diamancia\App\entities\Jewel');
-        return $jewels;
-    }
 
+        $minPrice = 100; // mettre la valeur minimale souhaitée
+        $maxPrice = 500; // mettre la valeur maximale souhaitée
+
+        $filteredJewels = [];
+
+        foreach ($jewels as $jewel) {
+            if ($jewel->getPrice() >= $minPrice && $jewel->getPrice() <= $maxPrice) {
+                $filteredJewels[] = $jewel;
+            }
+        }
+
+        return $filteredJewels;
+    }
     // ListJewel récupère tout les bijoux Cards
 
     public function getAllJewels(): array

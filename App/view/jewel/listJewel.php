@@ -9,13 +9,76 @@
 
   <section class="flexContainer">
 
+
     <div class="filterContainer">
 
-      <button class="btnImg" type="button">accueil</button>
+      <div class="ContainerBtnHome">
+        <a class="btnHome" href="index.php">Accueil</a>
+      </div>
 
 
       <h4>filtrer par:</h4>
 
+      <!-- <div class="div-flex">
+        <form method="POST" action="">
+          <div class="filterType">
+            <label for="stone-select">Pierre :</label> 
+            <select id="stone-select" name="stone">
+              <option value="all">-- Pierre --</option>
+              <option value="1">Diamant</option>
+              <option value="2">Emeraude</option>
+              <option value="3">Aigue Marine</option>
+              <option value="4">Amethyste</option>
+              <option value="5">Opale</option>
+              <option value="6">Quartz Rose</option>
+              <option value="7">Rubis</option>
+              <option value="8">Saphir</option>
+              <option value="9">Topaze</option>
+              <option value="10">Tourmaline</option>
+            </select>
+          </div>
+
+          <div class="filterType">
+            <label for="metal-select">Metal :</label>
+            <select id="metal-select" name="metal">
+              <option value="all">-- metal --</option>
+              <option value="1">Or</option>
+              <option value="2">Or Blanc</option>
+              <option value="3">Or Rose</option>
+            </select>
+          </div>
+
+          <div class="filterType"> 
+            <label for="color-select">Couleur :</label> 
+            <select id="color-select" name="color">
+              <option value="">-- couleur --</option>
+              <option value="vert">vert</option>
+              <option value="blanc">blanc</option>
+              <option value="gris">gris</option>
+              <option value="jaune">jaune</option>
+              <option value="rose">rose</option>
+              <option value="bleuclaire">bleu claire</option>
+              <option value="bleufoncé">bleu foncé</option>
+              <option value="violet">violet</option>
+              <option value="rouge">rouge</option>
+              <option value="multicolor">multicolor</option>
+            </select>
+          </div>
+
+          <div class="filterType">
+            <label for="price-select">Prix :</label> 
+            <select id="price-select" name="price">
+              <option value="">-- Prix --</option>
+              <option value="100-200">De 100 à 200€</option>
+              <option value="200-300">De 200 à 300€ </option>
+              <option value="400-500">De 400 à 500€ </option>
+              <option value="500-600">De 500 à 600€ </option>
+            </select>
+          </div>
+
+          <button type="submit">Filtrer</button>
+        </form>
+      </div> -->
 
       <div class="div-flex">
         <div class="filterType">
@@ -77,6 +140,7 @@
               <option value="200-300">De 200 à 300€ </option>
               <option value="300-400">De 300 à 400€ </option>
               <option value="400-500">De 400 à 1000€ </option>
+              <option value="400-500">De 1000 à 1500€ </option>
             </select>
             <button type="submit">Filtrer</button>
           </form>
@@ -180,7 +244,8 @@
     </div>
   </div>
 </div>
-<script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
   //**********************************/ Favoris *************************************//
 
   // on utilise jQuery pour ajouter un comportement de favori interactif sur un btn
@@ -229,6 +294,22 @@
   //**********************************/ Filtres *************************************//
 
 
+  // un filtre ston 
+  // const stoneSelect = document.querySelector('#stone-select');
+  // stoneSelect.addEventListener('change', () => {
+  //   const selectedStone = stoneSelect.value;
+  //   let filteredJewels = tabJewels;
+  //   if (selectedStone !== 'all') {
+  //     filteredJewels = tabJewels.filter(jewel => jewel.id_stone === selectedStone);
+  //   }
+  //   const articlesContainer = document.querySelector('.articlesContainer');
+  //   articlesContainer.innerHTML = '';
+  //   filteredJewels.forEach(jewel => {
+  //     // Créer la carte pour chaque bijou ici
+  //     // ...
+  //   });
+  // });
+
   const stoneSelect = document.querySelector('#stone-select');
   stoneSelect.addEventListener('change', () => {
     const selectedStone = stoneSelect.value;
@@ -243,4 +324,122 @@
       // ...
     });
   });
+
+  const metalSelect = document.querySelector('#metal-select');
+  metalSelect.addEventListener('change', () => {
+    const selectedMetal = metalSelect.value;
+    let filteredJewels = tabJewels;
+    if (selectedMetal !== 'all') {
+      filteredJewels = tabJewels.filter(jewel => jewel.metal === selectedMetal);
+    }
+    const articlesContainer = document.querySelector('.articlesContainer');
+    articlesContainer.innerHTML = '';
+    filteredJewels.forEach(jewel => {
+      // Créer la carte pour chaque bijou ici
+      // ...
+    });
+  });
+
+  const colorSelect = document.querySelector('#color-select');
+  colorSelect.addEventListener('change', () => {
+    const selectedColor = colorSelect.value;
+    let filteredJewels = tabJewels;
+    if (selectedColor) {
+      filteredJewels = tabJewels.filter(jewel => jewel.colors.includes(selectedColor));
+    }
+    const articlesContainer = document.querySelector('.articlesContainer');
+    articlesContainer.innerHTML = '';
+    filteredJewels.forEach(jewel => {
+      // Créer la carte pour chaque bijou ici
+      // ...
+    });
+  });
+
+  priceSelect.addEventListener('change', () => {
+    const selectedPrice = priceSelect.value;
+    let filteredJewels = [];
+
+    if (selectedPrice) {
+      const priceValue = parseFloat(selectedPrice);
+      filteredJewels = tabJewels.filter(jewel => parseFloat(jewel.price) >= priceValue);
+    } else {
+      filteredJewels = tabJewels;
+    }
+
+    const articlesContainer = document.querySelector('.articlesContainer');
+    articlesContainer.innerHTML = '';
+
+    filteredJewels.forEach(jewel => {
+      // Créer la carte pour chaque bijou ici
+      // ...
+    });
+  });
+
+  // const prix add 
+  // const priceSelect = document.querySelector('#price-select');
+
+  // priceSelect.addEventListener('change', () => {
+  //   const selectedPrice = priceSelect.value;
+  //   let filteredJewels = tabJewels;
+
+  //   if (selectedPrice) {
+  //     const [minPrice, maxPrice] = selectedPrice.split('-');
+  //     // console.log('minPrice:', minPrice, 'maxPrice:', maxPrice);
+  //     filteredJewels = tabJewels.filter(jewel => {
+  //       const jewelPrice = parseFloat(jewel.price);
+  //       return jewelPrice >= minPrice && jewelPrice <= maxPrice;
+  //     });
+  //     console.log('minPrice: ', minPrice);
+  //     console.log('maxPrice: ', maxPrice);
+  //     console.log('filteredJewels: ', filteredJewels);
+  //   }
+
+  //   const articlesContainer = document.querySelector('.articlesContainer');
+  //   articlesContainer.innerHTML = '';
+
+  //   filteredJewels.forEach(jewel => {
+  //     // Créer la carte pour chaque bijou ici
+  //     // ...
+  //   });
+  // });
+
+  // const filterForm = document.querySelector('#filter-form');
+
+  // filterForm.addEventListener('submit', (event) => {
+  //   event.preventDefault(); // Empêcher la soumission du formulaire
+
+  //   // Récupérer les valeurs sélectionnées pour chaque filtre
+  //   const selectedStone = document.querySelector('#stone-select').value;
+  //   const selectedMetal = document.querySelector('#metal-select').value;
+  //   const selectedColor = document.querySelector('#color-select').value;
+  //   const selectedPrice = document.querySelector('#price-select').value;
+
+  //   // Filtrer la liste de bijoux en conséquence
+  //   let filteredJewels = tabJewels.filter(jewel => {
+  //     if (selectedStone !== 'all' && jewel.id_stone !== selectedStone) {
+  //       return false;
+  //     }
+  //     if (selectedMetal !== 'all' && jewel.metal !== selectedMetal) {
+  //       return false;
+  //     }
+  //     if (selectedColor && !jewel.colors.includes(selectedColor)) {
+  //       return false;
+  //     }
+  //     if (selectedPrice) {
+  //       const [minPrice, maxPrice] = selectedPrice.split('-');
+  //       if (jewel.price < minPrice || jewel.price > maxPrice) {
+  //         return false;
+  //       }
+  //     }
+  //     return true;
+  //   });
+
+  //   // Afficher les bijoux filtrés
+  //   const articlesContainer = document.querySelector('.articlesContainer');
+  //   articlesContainer.innerHTML = '';
+  //   filteredJewels.forEach(jewel => {
+  //     // Créer la carte pour chaque bijou ici
+  //     // ...
+  //   });
+  // });
 </script>

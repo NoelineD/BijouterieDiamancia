@@ -23,16 +23,17 @@ class JewelController extends Controller
         $model = new JewelModel();
         $tabJewels = [];
 
-         // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['stone'])) {
+        //  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['stone'])) {
         //     $stoneId = intval($_POST['stone']);
         //     // var_dump($_GET['stone']);
         //     $tabJewels = $model->listJewelsByStone($stoneId);
         //     // var_dump($_GET['stone']);
         // } else {
         //     $tabJewels = $model->listJewel();
-        // }   First method avec un seul filtre
+        // }   
+        // First method avec un seul filtre
 
-        // Filtre par pierre
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['stone'])) {
             $stoneId = intval($_POST['stone']);
             $tabJewels = $model->listJewelsByStone($stoneId);
@@ -45,24 +46,76 @@ class JewelController extends Controller
         }
 
         // Filtre par métal
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metal'])
+        if (
+            $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['metal'])
         ) {
             $metalId = intval($_POST['metal']);
             $tabJewels = $model->listJewelsByMetal($metalId);
         }
 
         // Filtre par prix
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['min_price']) && isset($_POST['max_price'])
+
+
+        if (
+            $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['min_price']) && isset($_POST['max_price'])
         ) {
             $minPrice = intval($_POST['min_price']);
             $maxPrice = intval($_POST['max_price']);
             $tabJewels = $model->listJewelsByPrice($minPrice, $maxPrice);
         }
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['min_price']) && isset($_POST['max_price'])
+        // ) {
+        //     $minPrice = intval($_POST['min_price']);
+        //     $maxPrice = intval($_POST['max_price']);
+        //     $tabJewels = $model->listJewelsByPrice($minPrice, $maxPrice);
+        // }
 
         if (empty($tabJewels)) {
             $tabJewels = $model->listJewel();
         }
-       
+
+
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        //     if (isset($_POST['stone']) && $_POST['stone'] !== 'all'
+        //     ) {
+        //         $stoneId = intval($_POST['stone']);
+        //         $tabJewels = $model->listJewelsByStone($stoneId);
+        //     }
+
+        //     if (isset($_POST['color']) && $_POST['color'] !== 'all'
+        //     ) {
+        //         $color = $_POST['color'];
+        //         $tabJewels = $model->listJewelsByColor($color);
+        //     }
+
+        //     if (isset($_POST['metal']) && $_POST['metal'] !== 'all'
+        //     ) {
+        //         $metalId = intval($_POST['metal']);
+        //         $tabJewels = $model->listJewelsByMetal($metalId);
+        //     }
+
+        //     if (isset($_POST['min_price']) && isset($_POST['max_price'])) {
+        //         var_dump($_POST['min_price']);
+        //         var_dump($_POST['max_price']);
+        //         $minPrice = intval($_POST['min_price']);
+        //         $maxPrice = intval($_POST['max_price']);
+        //         if ($minPrice >= 0 && $maxPrice >= $minPrice) {
+        //             $tabJewels = $model->listJewelsByPrice($minPrice, $maxPrice);
+        //             echo '<pre>';
+        //             print_r($tabJewels);
+        //             echo '</pre>';
+        //             exit(); //
+        //         } else {
+        //             // Invalid price range, display all jewels
+        //             $tabJewels = $model->listJewel();
+        //         }
+        //     }
+
+        // } else {
+        //     $tabJewels = $model->listJewel();
+        // }
+
         $tabJewelsLimit = $model->listJewelsWithLimit(20);
         // var_dump($tabJewelsLimit); 
         // affiche le contenu de la variable dans le nav

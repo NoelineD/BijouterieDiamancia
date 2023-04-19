@@ -8,17 +8,17 @@ use Diamancia\App\entities\Cart;
 
 class FavsController extends Controller
 {
-    
+
 
     public function showfavs()
     {
 
         $favs = new Favoris();
 
-        $jewels = $favs -> getItemFavs();
+        $jewels = $favs->getItemFavs();
 
 
-        if (empty($itemFavs)) {
+        if (empty($jewels)) {
 
             $view = 'favs/emptyFavs';
             $paramView = ['css' => 'showCart'];

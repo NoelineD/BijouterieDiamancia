@@ -164,6 +164,7 @@ class Jewel
         return $this->number_size;
     }
 
+ 
     // public static function fromArray(array $props): Jewel
     // {
     //     $jewel = new Jewel();

@@ -10,9 +10,9 @@
     <main class="mainContainer">
 
         <div class="flexContainer">
-
-            <button class="btnImg" type="button">accueil</button>
-            <!-- AJOUT DE LA DIV FILTER POUR TENTER DE FAIRE LE FILTRAGE -->
+            <div class="ContainerBtnHome">
+                <a class="btnHome" href="index.php">Accueil</a>
+            </div>
             <!-- <div class="filter"> -->
             <h4>filtrer par:</h4>
 

@@ -5,22 +5,29 @@ width:100%;
 
 /***************** Filter *****************/
 .btnImg {
+border:none;
+}
 
-    background-image: linear-gradient(to right, #FEBFD4 0%, #FFFF 51%, #FEBFD4 100%);
-    padding: 10px 20px;
-    margin-left:20px;
-    margin-bottom:20px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: 0.5s;
-    background-size: 200% auto;
-    font-size: 0.7em;
-    border: transparent;
-    color: #566A74;
-    box-shadow: 10px 10px 10px #DBDBDD;
-    border-radius: 15px;
-    cursor: pointer;
+.containerBtnHome{
+margin-bottom: 40px;
+}
+
+.btnHome{
+        background-image: linear-gradient(to right, #FEBFD4 0%, #FFFF 51%, #FEBFD4 100%);
+        text-decoration:none;
+        padding: 10px 20px;
+        margin-left: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: 0.5s;
+        background-size: 200% auto;
+        /* font-size: 0.5em; */
+        border: transparent;
+        color: #566A74;
+        box-shadow: 10px 10px 10px #DBDBDD;
+        border-radius: 15px;
+        cursor: pointer;
 }
 
 .btnImg:hover {
@@ -36,6 +43,7 @@ width:100%;
 }
 
 .filterContainer {
+   
     width: 100%;
     height: 150px;
     
@@ -239,6 +247,30 @@ width:100%;
         object-fit: cover;
     }
 
+     
+    h4 {
+        margin-left: 10px;
+    }
+
+     .filterType{
+    margin: 10px 10px 10px 10px;
+    
+    }
+
+    .div-flex{
+        display:flex;
+        background-color: #f3aad5;
+        justify-content:space-evenly;
+
+    }
+   
+       select{
+        width:75px;
+        height:20px;
+        border-radius:5px;
+        font-size: 0.8em;
+    }
+
     /* .introFigcaption {
         font-size: 1.5em;
         width:7em;
@@ -309,7 +341,7 @@ width:100%;
 
     /************** container gauche ***********/
     .filterContainer {
-        width: 20%;
+        width: 28%;
         margin-top:20px;
         font-size:1.5em;
       }

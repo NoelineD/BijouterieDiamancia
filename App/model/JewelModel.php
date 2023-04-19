@@ -48,7 +48,6 @@ class JewelModel
     {
         $dao = new Dao();
         $jewels = $dao->getJewelsByPriceRange($minPrice, $maxPrice);
-        // var_dump($_GET,$stoneId);
         return $jewels;
     }
 
